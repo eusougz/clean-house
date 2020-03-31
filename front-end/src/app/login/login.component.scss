@@ -1,0 +1,34 @@
+mat-card {
+  height: fit-content;
+}
+mat-form-field {
+  font-size: 20px;
+}
+.white {
+  color: white;
+}
+
+#login-page {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('../../bg-login.png');
+}
+
+#balde {
+  margin-left: -20%;
+  max-width: 65%;
+  max-height: 65%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/img/balde.png');
+}
+
