@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight: 300 !important ;}
+
+@import './custom-theme.scss';
+
+.title {
+  font-size: 25px;
+  font-weight: 200;
+  color: mat-color($my-theme-primary);
+}
+
+.mat-button-toggle-checked,
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+  background-color: mat-color($my-theme-primary);
+  color: white;
+}

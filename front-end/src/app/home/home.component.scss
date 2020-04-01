@@ -1,35 +1,27 @@
-#menu {
-  padding-top: 3%;
-  padding-bottom: 3%;
-  background-color: #6AD3F4;
-}
-
 .w-100 {
   width: 100%;
 }
 .fs-25 {
   font-size: 25px;
 }
-.black {
-  color: #565656;
-}
 
 mat-card{
   width: 20%;
 }
-button, #menu button {
-  color: white;//#6AD3F4;
+button {
+  color: white;
   border-color: white;
 }
 button.mat-menu-item {
   color: #b5b5b5;
 }
 .data-title {
-  color: #565656;
   font-weight: bold;
 }
 .data {
-  color: #565656;
   font-size: 20px;
+}
+.black, .black mat-card {
+  color: #565656;
 }
 

@@ -1,45 +1,37 @@
 
-<div id="menu" fxLayoutGap="5%" fxLayoutAlign="center center">
-  <button fxFlex="15" mat-stroked-button>Home</button>
-  <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button>
-  <button fxFlex="10" mat-raised-button color="accent">+ Nova Tarefa</button>
-</div>
-
-<mat-menu #visualizar="matMenu">
-  <button mat-menu-item>Tarefas Pendentes</button>
-  <button mat-menu-item>Tarefas Semanais</button>
-</mat-menu>
-
-<div fxLayout="column" fxLayoutAlign="center center">
+<div fxLayout="column" fxLayoutAlign="start center">
 
 
   <div class="w-100" fxLayout="column" fxFlexOffset="5%" fxLayoutAlign="center center" fxLayoutGap="2%">
 
-
-
-    <label class="fs-25 black">Tarefas do dia</label>
+    <label class="title">Tarefas do dia</label>
 
     <div class="w-100" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2%">
 
       <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data">Organizar cama</span>
-        <div fxLayout="column">
-          <label class="data-title">Duração</label>
+        <span class="data black">Varrer a casa</span>
+        <div fxLayout="column" >
+          <label class="data-title black">Duração</label>
           <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
             <mat-icon>timer</mat-icon>
-            <span class="data">2 minutos</span>
+            <span class="data black">10 minutos</span>
           </div>
         </div>
-        <button mat-stroked-button disabled="true">Concluido</button>
+        <button mat-stroked-button color="accent" disabled="true">Concluido</button>
       </mat-card>
 
       <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data">Varrer a casa</span>
+        <div fxLayout fxLayoutAlign="space-between center">
+          <span class="data black">Organizar cama</span>
+          <div>
+            <mat-icon color="warn" matTooltip="3 dias atrasado">warning</mat-icon>
+          </div>
+        </div>
         <div fxLayout="column">
-          <label class="data-title">Duração</label>
+          <label class="data-title black">Duração</label>
           <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
             <mat-icon>timer</mat-icon>
-            <span class="data">10 minutos</span>
+            <span class="data black">2 minutos</span>
           </div>
         </div>
         <button mat-stroked-button color="accent">Concluir</button>
@@ -50,24 +42,24 @@
     <div class="w-100"  fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2%">
 
       <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data">Passar pano</span>
+        <span class="data black">Passar pano</span>
         <div fxLayout="column">
-          <label class="data-title">Duração</label>
+          <label class="data-title black">Duração</label>
           <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
             <mat-icon>timer</mat-icon>
-            <span class="data">8 minutos</span>
+            <span class="data black">8 minutos</span>
           </div>
         </div>
         <button mat-stroked-button color="accent">Concluir</button>
       </mat-card>
 
       <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data">Limpar banheiro</span>
+        <span class="data black">Limpar banheiro</span>
         <div fxLayout="column">
-          <label class="data-title">Duração</label>
+          <label class="data-title black">Duração</label>
           <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
             <mat-icon>timer</mat-icon>
-            <span class="data">25 minutos</span>
+            <span class="data black">25 minutos</span>
           </div>
         </div>
         <button mat-stroked-button color="accent">Concluir</button>
