@@ -1,0 +1,10 @@
+<div id="menu" fxLayoutGap="5%" fxLayoutAlign="center center">
+  <button fxFlex="15" mat-stroked-button routerLink="/home">Home</button>
+  <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button>
+  <button fxFlex="10" mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
+</div>
+
+<mat-menu #visualizar="matMenu">
+  <button mat-menu-item>Tarefas Pendentes</button>
+  <button mat-menu-item>Tarefas Semanais</button>
+</mat-menu>

@@ -1,8 +1,18 @@
+mat-button-toggle {
+  width: 100%;
+}
+
 .w-30 {
   width: 30%;
 }
 .w-60 {
   width: 60%;
+}
+.w-100 {
+  width: 100%;
+}
+.mt-5 {
+  margin-top: 5%;
 }
 .fs-20 {
   font-size: 20px;
@@ -12,4 +22,16 @@
 }
 .mat-raised-button {
   color: white;
+}
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 210%;
+  width: 80%;
+  background-color: #c1e6f2;
+  border-radius: 50%;
+  -ms-transform: translateX(-50%) translateY(-25%);
+  transform: translateX(-50%) translateY(-25%);
+  z-index: -1;
 }

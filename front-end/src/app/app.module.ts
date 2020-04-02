@@ -17,20 +17,22 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatRadioModule,
     MatButtonToggleModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

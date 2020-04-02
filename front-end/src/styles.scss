@@ -16,3 +16,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
   background-color: mat-color($my-theme-primary);
   color: white;
 }
+
+.image-div-size {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
