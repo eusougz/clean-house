@@ -27,6 +27,8 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppService } from './services/app.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [AppService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

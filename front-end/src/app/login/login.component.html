@@ -4,8 +4,8 @@
     <div>
       <mat-card fxLayout="column">
         <mat-form-field>
-          <input matInput [formControl]="login" placeholder="Quem é você?">
-          <mat-error *ngIf="login.hasError('required')">
+          <input matInput [formControl]="userName" placeholder="Quem é você?">
+          <mat-error *ngIf="userName.hasError('required')">
             Você precisa colocar o nome
           </mat-error>
         </mat-form-field>

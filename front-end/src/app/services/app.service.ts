@@ -11,10 +11,30 @@ export class AppService {
 
   private readonly api = `${environment.api}/users`;
 
-  constructor(private http: HttpClient) { }
+  private logged = false;
 
-  getUsers() {
+  private users: User[];
+
+  constructor(private http: HttpClient) {
+    this.getUsers().subscribe(value => this.users = value);
+  }
+
+  private getUsers() {
     return this.http.get<User[]>(this.api);
+  }
+
+  login(userName) {
+    this.users.forEach(user => {
+      if (user.name === userName) {
+        this.logged = true;
+      }
+    });
+
+    return this.logged;
+  }
+
+  userAutheticated() {
+    return this.logged;
   }
 
 }
