@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,7 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 import { LoginComponent } from './login/login.component';
@@ -25,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,

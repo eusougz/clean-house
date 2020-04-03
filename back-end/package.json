@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/eusougz/clean-house/issues"
   },
-  "homepage": "https://github.com/eusougz/clean-house#readme"
+  "homepage": "https://github.com/eusougz/clean-house#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.20.13",
+    "nodemon": "^2.0.2",
+    "sqlite3": "^4.1.1"
+  }
 }

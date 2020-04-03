@@ -4,9 +4,13 @@
     <div>
       <mat-card fxLayout="column">
         <mat-form-field>
-          <input matInput placeholder="Quem é você?">
+          <input matInput [formControl]="login" placeholder="Quem é você?">
+          <mat-error *ngIf="login.hasError('required')">
+            Você precisa colocar o nome
+          </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="accent" class="white">Entrar</button>
+        <button mat-raised-button color="accent" class="white"
+          (click)="auth()" [routerLink]="goToHome()">Entrar</button>
       </mat-card>
     </div>
   </div>
