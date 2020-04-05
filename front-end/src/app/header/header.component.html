@@ -1,10 +1,19 @@
-<div id="menu" fxLayoutGap="5%" fxLayoutAlign="center center">
+<div id="menu" fxLayoutAlign="space-between center">
   <ng-template [ngIf]="appService.userAutheticated()">
-
+    <div fxFlex="70" fxLayoutGap="5%" fxLayoutAlign="center center">
       <button fxFlex="15" mat-stroked-button routerLink="/home">Home</button>
       <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button>
-      <button fxFlex="10" mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
+      <button fxFlex="15" mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
+    </div>
 
+    <div fxFlex="15" fxLayoutGap="2%" fxLayoutAlign="end center">
+      <!-- To Do -->
+      <!-- <span>Olá {{ userName }}</span> -->
+      <button mat-button (click)="logout()" routerLink="/login">
+        <mat-icon>exit_to_app</mat-icon>
+        Sair
+      </button>
+    </div>
 
     <mat-menu #visualizar="matMenu">
       <button mat-menu-item>Tarefas Pendentes</button>
