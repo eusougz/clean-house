@@ -1,0 +1,11 @@
+<mat-card fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5%" style="height: 170px;">
+  <span class="data black w-100">{{ task.name }}</span>
+  <div class="w-100" fxLayout="column">
+    <label class="data-title black">Duração</label>
+    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
+      <mat-icon>timer</mat-icon>
+      <span class="data black">{{ task.duration }} minutos</span>
+    </div>
+  </div>
+  <button class="w-100" mat-stroked-button color="accent" disabled="false">Concluir</button>
+</mat-card>

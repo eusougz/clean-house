@@ -1,75 +1,15 @@
 
-<div fxLayout="column" fxLayoutAlign="start center">
+<div fxLayout="column" fxLayoutGap="3%" fxFlex fxLayoutAlign="start center">
 
+  <label class="title" fxFlexOffset="5%" >Tarefas do dia</label>
 
-  <div class="w-100" fxLayout="column" fxFlexOffset="5%" fxLayoutAlign="center center" fxLayoutGap="2%">
-
-    <!-- <mat-toolbar class="w-30"fxLayoutAlign="center center" ><span>Quarta, 01/04</span></mat-toolbar> -->
-
-    <label class="title">Tarefas do dia</label>
-
-    <div class="w-100" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2%">
-
-      <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data black">Varrer a casa</span>
-        <div fxLayout="column" >
-          <label class="data-title black">Duração</label>
-          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
-            <mat-icon>timer</mat-icon>
-            <span class="data black">10 minutos</span>
-          </div>
-        </div>
-        <button mat-stroked-button color="accent" disabled="true">Concluido</button>
-      </mat-card>
-
-      <mat-card fxLayout="column" fxLayoutGap="5%">
-        <div fxLayout fxLayoutAlign="space-between center">
-          <span class="data black">Organizar cama</span>
-          <div>
-            <mat-icon color="warn" matTooltip="3 dias atrasado">warning</mat-icon>
-          </div>
-        </div>
-        <div fxLayout="column">
-          <label class="data-title black">Duração</label>
-          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
-            <mat-icon>timer</mat-icon>
-            <span class="data black">2 minutos</span>
-          </div>
-        </div>
-        <button mat-stroked-button color="accent">Concluir</button>
-      </mat-card>
-
-    </div>
-
-    <div class="w-100"  fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2%">
-
-      <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data black">Passar pano</span>
-        <div fxLayout="column">
-          <label class="data-title black">Duração</label>
-          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
-            <mat-icon>timer</mat-icon>
-            <span class="data black">8 minutos</span>
-          </div>
-        </div>
-        <button mat-stroked-button color="accent">Concluir</button>
-      </mat-card>
-
-      <mat-card fxLayout="column" fxLayoutGap="5%">
-        <span class="data black">Limpar banheiro</span>
-        <div fxLayout="column">
-          <label class="data-title black">Duração</label>
-          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
-            <mat-icon>timer</mat-icon>
-            <span class="data black">25 minutos</span>
-          </div>
-        </div>
-        <button mat-stroked-button color="accent">Concluir</button>
-      </mat-card>
-
-    </div>
-
-  </div>
+  <table class="w-50">
+    <tr *ngFor="let row of table; trackBy: trackRow" fxLayoutGap="5%">
+      <td *ngFor="let cell of row; trackBy: trackRecord" fxFlex="50">
+        <app-task [task]="cell"></app-task>
+      </td>
+    </tr>
+  </table>
 
 </div>
 

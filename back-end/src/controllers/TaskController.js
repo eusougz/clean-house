@@ -9,7 +9,7 @@ module.exports = {
     async getByUser (request, response) {
         const user = request.params;
         const tasks = await connection('tasks')
-            .select('*')
+            .select('id', 'name', 'duration', 'recurrent', 'date')
             .where('user_id', user.name);
     
         return response.json(tasks);

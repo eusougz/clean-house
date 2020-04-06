@@ -29,6 +29,7 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
 import { AuthGuard } from './guards/auth.guard';
+import { TaskComponent } from './home/task/task.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     HomeComponent,
     NewTaskComponent,
-    HeaderComponent
+    HeaderComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
