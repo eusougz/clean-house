@@ -17,12 +17,12 @@ routes.get('/tasks/:name', TaskController.getByUser );
 
 routes.post('/tasks', TaskController.add );
 
-routes.delete('/tasks/:id', TaskController.delete )
+routes.delete('/tasks/:id', TaskController.delete );
 
 
 routes.get('/tasksWeek', TaskWeekController.getAll );
 
-routes.delete('/tasksWeek/:id', TaskWeekController.delete )
+routes.delete('/tasksWeek/:id', TaskWeekController.delete );
 
 
 module.exports = routes;

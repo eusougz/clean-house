@@ -22,3 +22,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
   width: 100%;
   display: block;
 }
+
+.bold {font-weight: bold}
+.white {color: #fff}
+.primary-color {color: mat-color($my-theme-primary)}
+.secundary-color {color: mat-color($my-theme-accent);}

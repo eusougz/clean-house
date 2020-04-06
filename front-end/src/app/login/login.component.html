@@ -1,7 +1,7 @@
 <div id="login-page" fxLayoutAlign="center center">
 
   <div id="balde" fxLayout fxLayoutAlign="end center">
-    <div>
+    <div fxLayout="column" fxLayoutGap="2%">
       <mat-card fxLayout="column">
         <mat-form-field>
           <input matInput [formControl]="userName" placeholder="Quem é você?">
@@ -13,6 +13,9 @@
           (click)="auth()" [routerLink]="goToHome()">
           Entrar
         </button>
+      </mat-card>
+      <mat-card fxLayout>
+        <label>Não tem uma conta? <u class="bold" routerLink="">Cadastre-se</u></label>
       </mat-card>
     </div>
   </div>

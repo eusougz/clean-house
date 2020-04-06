@@ -10,18 +10,27 @@ import { UserService } from './user.service';
 export class AppService {
 
   private logged = false;
-  private userLogged: string;
 
   private users: User[];
 
-  constructor(private userService: UserService){
+  private USER_KEY = 'user';
+
+  constructor(private userService: UserService) {
     this.userService.getUsers().subscribe(value => this.users = value);
+
+    if (this.UserName) {
+      this.logged = true;
+    }
+  }
+
+  userAutheticated() {
+    return this.logged;
   }
 
   login(userName) {
     this.users.forEach(user => {
       if (user.name === userName) {
-        this.userLogged = userName;
+        localStorage.setItem(this.USER_KEY, userName);
         this.logged = true;
       }
     });
@@ -30,15 +39,12 @@ export class AppService {
   }
 
   logout() {
+    localStorage.clear();
     this.logged = false;
   }
 
-  userAutheticated() {
-    return this.logged;
-  }
-
-  getUserName() {
-    return this.userLogged;
+  get UserName() {
+    return localStorage.getItem(this.USER_KEY) || false;
   }
 
 }

@@ -7,13 +7,12 @@ import { AppService } from '../services/app.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  // userName: string;
+  userName;
 
   constructor(public appService: AppService) { }
 
-  // To do
   ngOnInit(): void {
-    // this.userName = this.appService.getUserName();
+    this.userName = this.appService.UserName;
   }
 
   logout() {
