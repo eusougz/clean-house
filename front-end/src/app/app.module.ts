@@ -30,6 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
 import { AuthGuard } from './guards/auth.guard';
 import { TaskComponent } from './home/task/task.component';
+import { FadeComponent } from './fade/fade.component';
+import { SuccessComponent } from './common/success/success.component';
+import { FailComponent } from './common/fail/fail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { TaskComponent } from './home/task/task.component';
     HomeComponent,
     NewTaskComponent,
     HeaderComponent,
-    TaskComponent
+    TaskComponent,
+    FadeComponent,
+    SuccessComponent,
+    FailComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,15 @@ import { TaskComponent } from './home/task/task.component';
     MatNativeDateModule,
     MatToolbarModule
   ],
-  providers: [AppService, AuthGuard],
+  providers: [
+    AppService,
+    AuthGuard,
+    FadeComponent
+  ],
+  entryComponents: [
+    SuccessComponent,
+    FailComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

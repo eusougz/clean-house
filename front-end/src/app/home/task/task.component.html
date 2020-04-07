@@ -1,4 +1,4 @@
-<mat-card fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5%" style="height: 170px;">
+<mat-card *ngIf="isToday" fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5%" style="height: 170px;">
   <span class="data black w-100">{{ task.name }}</span>
   <div class="w-100" fxLayout="column">
     <label class="data-title black">Duração</label>

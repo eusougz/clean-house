@@ -1,9 +1,11 @@
 mat-button-toggle {
   width: 100%;
 }
-
+.w-10 {
+  width: 10%;
+}
 .w-30 {
-  width: 30%;
+  width: 40%;
 }
 .w-60 {
   width: 60%;
@@ -20,18 +22,34 @@ mat-button-toggle {
 .black {
   color: #565656;
 }
+.text-center {
+  text-align: center;
+}
 .mat-raised-button {
   color: white;
 }
-.bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 210%;
-  width: 80%;
-  background-color: #c1e6f2;
-  border-radius: 50%;
-  -ms-transform: translateX(-50%) translateY(-25%);
-  transform: translateX(-50%) translateY(-25%);
-  z-index: -1;
+.border-bottom{
+  border-bottom: 1px solid #e8e8e8;
 }
+.input-height {
+  height: 83.75px;
+}
+
+.register-btn {
+  font-size: 20px;
+  line-height: 2.5em;
+}
+
+
+// .bg-img {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 210%;
+//   width: 80%;
+//   background-color: #c1e6f2;
+//   border-radius: 50%;
+//   -ms-transform: translateX(-50%) translateY(-25%);
+//   transform: translateX(-50%) translateY(-25%);
+//   z-index: -1;
+// }

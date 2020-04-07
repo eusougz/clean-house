@@ -24,6 +24,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 }
 
 .bold {font-weight: bold}
+.text-center {text-align: center}
 .white {color: #fff}
 .primary-color {color: mat-color($my-theme-primary)}
-.secundary-color {color: mat-color($my-theme-accent);}
+.secundary-color {color: mat-color($my-theme-accent)}

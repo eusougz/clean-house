@@ -15,6 +15,8 @@ module.exports = {
         return response.json(tasks);
     },
     async add (request, response) {
+        console.log(request.body);
+
         const { user_id, name, duration, recurrent, date, days  } = request.body;
     
         if (recurrent) {

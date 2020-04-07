@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe(value => this.tasks = value);
+    this.taskService.Tasks.subscribe(value => this.tasks = value);
   }
 
 

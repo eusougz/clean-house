@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { TaskService } from '../services/task.service';
+import { AppService } from '../services/app.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessComponent } from '../common/success/success.component';
+import { FailComponent } from '../common/fail/fail.component';
 
 @Component({
   selector: 'app-new-task',
@@ -10,7 +16,21 @@ export class NewTaskComponent implements OnInit {
   recurrent: boolean;
   canRegister = false;
 
-  constructor() { }
+  taskName: FormControl;
+  duration: FormControl;
+
+  taskDaysOfWeek: number[];
+  taskDate: FormControl;
+
+  constructor(
+    private appService: AppService,
+    private taskService: TaskService,
+    private dialog: MatDialog
+    ) {
+    this.taskName = new FormControl('', Validators.required);
+    this.duration = new FormControl('', Validators.required);
+    this.taskDate = new FormControl('', Validators.required);
+  }
 
   ngOnInit(): void {
   }
@@ -24,8 +44,37 @@ export class NewTaskComponent implements OnInit {
   }
 
   weekDays(e) {
-    if (e.value.lenght != 0) {
-      this.canRegister = true;
+    this.taskDaysOfWeek = e.value;
+    this.canRegister = true;
+  }
+
+  register() {
+    if (this.recurrent) {
+      const model = {
+        user_id: this.appService.UserName,
+        name: this.taskName.value,
+        duration: this.duration.value.toString(),
+        recurrent: true,
+        days: this.taskDaysOfWeek
+      };
+      this.taskService.addTask(model).subscribe(value => this.taskCreated(value.task_id));
+    } else {
+      const model = {
+        user_id: this.appService.UserName,
+        name: this.taskName.value,
+        duration: this.duration.value.toString(),
+        recurrent: false,
+        date: this.taskDate.value
+      };
+      this.taskService.addTask(model).subscribe(value => this.taskCreated(value.task_id));
+    }
+  }
+
+  taskCreated(taskId) {
+    if (taskId > 0) {
+      this.dialog.open(SuccessComponent, { data: 'Tarefa cadastrada' });
+    } else {
+      this.dialog.open(FailComponent, { data: 'Tarefa não cadastrada, confira os dados' });
     }
   }
 

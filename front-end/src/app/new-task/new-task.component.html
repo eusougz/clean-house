@@ -1,83 +1,97 @@
 
-<div fxLayout fxLayoutAlign="start center" fxFlex fxFlexOffset="10%">
+<div fxLayout fxLayoutAlign="start center" fxFlex>
 
-  <div class="bg-img"></div>
+  <!-- <div class="bg-img"></div> -->
 
   <!-- <div fxFlex="30" fxLayoutAlign="start center">
     <img class="image-div-size" src="../../assets/img/balde-poucas-bolhas.png">
   </div> -->
 
-  <div fxFlex="60" class="black fs-20 mt-5" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="3%">
+  <div fxFlex="60" class="black fs-20 mt-5" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%">
     <label class="title" fxFlexOffset="2%">Nova tarefa</label>
 
-    <div class="w-100" fxLayout="column" fxLayoutAlign="center center">
+    <div class="w-100" fxLayout fxLayoutAlign="center center">
       <mat-form-field appearance="outline" class="w-30">
         <mat-label>Nome</mat-label>
-        <input matInput placeholder="Digite o nome da tarefa">
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="w-30">
-        <mat-label>Duração</mat-label>
-        <input matInput placeholder="Digite em minutos" type="number" min="1">
+        <input matInput [formControl]="taskName" placeholder="Digite o nome da tarefa" class="text-center">
       </mat-form-field>
     </div>
 
-    <div fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center" class="w-30 fs-20">
-      <label id="recorrente">É uma tarefa recorrente?</label>
-      <mat-radio-group
-        aria-label="recorrente"
-        fxLayoutAlign="center center"
-        fxLayoutGap="15%"
-        (change)="isRecurrent($event)"
-      >
-        <mat-radio-button color="primary" value="1">Sim</mat-radio-button>
-        <mat-radio-button color="primary" value="0">Não</mat-radio-button>
-      </mat-radio-group>
-    </div>
+    <div fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="w-100 fs-20">
 
-    <div *ngIf="recurrent != null">
-      <div *ngIf="recurrent" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center" class="fs-20">
-        <label id="dias-semana">Selecione os dias da semana</label>
+      <div class="w-30" fxLayout fxLayoutAlign="space-between center">
+        <mat-form-field fxFlex="40" appearance="outline" class="w-30 input-height">
+          <mat-label>Duração</mat-label>
+          <input matInput [formControl]="duration" placeholder="em minutos"  class="text-center" type="number" min="1">
+        </mat-form-field>
 
-        <div fxLayout="column">
-          <mat-button-toggle-group
-            multiple="true"
-            vertical="false"
-            aria-label="dias-semana"
-            (change)="weekDays($event)"
+        <div fxFlex="60" fxLayout="column" fxLayoutGap="3%" fxLayoutAlign="center center">
+          <label id="recorrente">É uma tarefa recorrente?</label>
+          <mat-radio-group
+            aria-label="recorrente"
+            fxLayoutAlign="center center"
+            fxLayoutGap="15%"
+            (change)="isRecurrent($event)"
           >
-            <mat-button-toggle value="0">Domingo</mat-button-toggle>
-            <mat-button-toggle value="1">Sábado</mat-button-toggle>
-            <mat-button-toggle value="2">Segunda</mat-button-toggle>
-          </mat-button-toggle-group>
-          <mat-button-toggle-group
-            multiple="true"
-            vertical="false"
-            aria-label="dias-semana"
-            (change)="weekDays($event)"
-          >
-            <mat-button-toggle value="3">Terça</mat-button-toggle>
-            <mat-button-toggle value="4">Quarta</mat-button-toggle>
-            <mat-button-toggle value="5">Quinta</mat-button-toggle>
-            <mat-button-toggle value="6">Sexta</mat-button-toggle>
-          </mat-button-toggle-group>
+            <mat-radio-button color="primary" value="1">Sim</mat-radio-button>
+            <mat-radio-button color="primary" value="0">Não</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div *ngIf="recurrent != null">
+        <div *ngIf="recurrent" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center" class="fs-20">
+          <label id="dias-semana">Selecione os dias da semana</label>
+
+          <div fxLayout="column">
+            <mat-button-toggle-group
+              multiple="true"
+              vertical="false"
+              aria-label="dias-semana"
+              (change)="weekDays($event)"
+            >
+              <div fxLayout="column">
+                <div fxLayout class="border-bottom">
+                  <mat-button-toggle value="6">Sábado</mat-button-toggle>
+                  <mat-button-toggle value="0">Domingo</mat-button-toggle>
+                  <mat-button-toggle value="1">Segunda</mat-button-toggle>
+                </div>
+                <div fxLayout>
+                  <mat-button-toggle value="2">Terça</mat-button-toggle>
+                  <mat-button-toggle value="3">Quarta</mat-button-toggle>
+                  <mat-button-toggle value="4">Quinta</mat-button-toggle>
+                  <mat-button-toggle value="5">Sexta</mat-button-toggle>
+                </div>
+              </div>
+            </mat-button-toggle-group>
+          </div>
+
+
         </div>
 
-
-      </div>
-
-      <div *ngIf="!recurrent" fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="fs-20">
-        <mat-form-field>
-          <mat-label>Selecione a data</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #picker></mat-datepicker>
-        </mat-form-field>
+        <div *ngIf="!recurrent" fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="fs-20">
+          <mat-form-field>
+            <mat-label>Selecione a data</mat-label>
+            <input matInput [formControl]="taskDate" [matDatepicker]="picker" class="text-center">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
       </div>
     </div>
 
-    <div class="w-60" fxLayoutAlign="center center" >
-      <button fxFlex="20" mat-raised-button color="accent" [disabled]="!canRegister">Cadastrar</button>
+
+
+    <div class="w-60" fxLayoutAlign="center center">
+      <button fxFlex="20"
+        mat-raised-button
+        color="accent"
+        class="register-btn"
+        [disabled]="!canRegister"
+        (click)="register()"
+      >
+        Cadastrar
+      </button>
     </div>
   </div>
 

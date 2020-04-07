@@ -1,0 +1,17 @@
+
+<div fxLayout="column" fxLayoutGap="15%" fxLayoutAlign="center center">
+  <mat-icon color="accent" class="icon-done">
+    done
+  </mat-icon>
+  <label class="black fs-25">
+    {{ message }}
+  </label>
+  <button mat-stroked-button
+    color="accent"
+    class="w-100"
+    (click)="close()"
+  >
+    OK
+  </button>
+</div>
+
