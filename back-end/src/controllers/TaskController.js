@@ -57,5 +57,11 @@ module.exports = {
         await connection('tasks').where('id', id).delete();
     
         return response.status(204).send();
+    },
+    async deleteAllTasks (request, response) {
+        await connection('tasks').delete();
+        await connection('tasks_week').delete();
+
+        return response.status(204).send();
     }
 }

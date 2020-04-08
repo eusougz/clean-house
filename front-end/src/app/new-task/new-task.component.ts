@@ -13,14 +13,15 @@ import { FailComponent } from '../common/fail/fail.component';
 })
 export class NewTaskComponent implements OnInit {
 
-  recurrent: boolean;
+
   canRegister = false;
 
+  recurrent: boolean;
   taskName: FormControl;
   duration: FormControl;
-
-  taskDaysOfWeek: number[];
   taskDate: FormControl;
+  taskDaysOfWeek: number[];
+
 
   constructor(
     private appService: AppService,
@@ -45,6 +46,10 @@ export class NewTaskComponent implements OnInit {
 
   weekDays(e) {
     this.taskDaysOfWeek = e.value;
+    this.canRegister = true;
+  }
+
+  onChangeDate(e) {
     this.canRegister = true;
   }
 

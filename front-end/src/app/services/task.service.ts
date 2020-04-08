@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { AppService } from './app.service';
 import { Task } from '../models/task';
 import { TaskCreated } from '../models/task-created';
+import { TaskDay } from '../models/task-day';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,39 @@ export class TaskService {
   }
 
   getRecurrentTaskDay(taskId, userId) {
-    return this.http.get(`${environment.api}/tasksWeek/${userId}/${taskId}`);
+    return this.http.get<TaskDay>(`${environment.api}/tasksWeek/${userId}/${taskId}`);
+  }
+
+  todayTasks(tasks: Task[], userId) {
+    let todayTasks: Task[] = [];
+    const today: Date = new Date();
+
+    tasks.forEach(task => {
+      if (task.recurrent) {
+        this.getRecurrentTaskDay(task.id, userId).subscribe(taskDay => {
+          if (this.checkDayIsToday(today, parseInt(taskDay.day, 10))) {
+            todayTasks.push(task);
+          }
+        });
+      } else {
+        if (this.checkDateIsCurrent(today, new Date(task.date))) {
+          todayTasks.push(task);
+        }
+      }
+    });
+
+    console.log(todayTasks);
+
+    return todayTasks;
+  }
+
+  checkDayIsToday(today, taskDay) {
+    return today.getDay() === taskDay;
+  }
+
+  checkDateIsCurrent(today, taskDate) {
+    return taskDate.getDate() === today.getDate()
+      && taskDate.getMonth() === today.getMonth()
+      && taskDate.getFullYear() === today.getFullYear();
   }
 }

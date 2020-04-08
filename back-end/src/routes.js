@@ -19,8 +19,12 @@ routes.post('/tasks', TaskController.add );
 
 routes.delete('/tasks/:id', TaskController.delete );
 
+routes.delete('/tasks', TaskController.deleteAllTasks );
+
 
 routes.get('/tasksWeek', TaskWeekController.getAll );
+
+routes.get('/tasksWeek/:userId/:taskId', TaskWeekController.getDay );
 
 routes.delete('/tasksWeek/:id', TaskWeekController.delete );
 
