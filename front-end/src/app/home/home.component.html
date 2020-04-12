@@ -6,10 +6,25 @@
   <table class="w-50" fxLayout="column" fxLayoutGap="5%">
     <tr *ngFor="let row of table; trackBy: trackRow" fxLayout>
       <td *ngFor="let cell of row; trackBy: trackRecord" fxFlex="45" style="margin-right: 5%;">
-        <app-task [task]="cell"></app-task>
+        <app-task [taskView]="cell"></app-task>
       </td>
     </tr>
   </table>
+
+  <!-- <div *ngIf="tasks.length === 0" fxLayout="column" fxLayoutGap="5%" class="black">
+    <span class="fs-50">07/04,</span>
+    <label class="fs-18">Nenhuma tarefa para hoje</label>
+    <div fxLayoutAlign="center center" class="mt-15">
+      <label class="fs-25 w-90">Aproveite para descansar </label>
+      <mat-icon class="fs-28 w-10 primary-color">mood</mat-icon>
+    </div>
+    <div fxLayout fxLayoutAlign="center center">
+      <mat-divider class="w-40"></mat-divider>
+      <span class="w-20 fs-25" fxLayoutAlign="center center">ou</span>
+      <mat-divider class="w-40"></mat-divider>
+    </div>
+    <button mat-stroked-button color="accent" class="fs-25 consult-btn">Consultar tarefas pendentes</button>
+  </div> -->
 
 </div>
 

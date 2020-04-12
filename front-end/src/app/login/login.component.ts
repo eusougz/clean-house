@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../services/app.service';
 import { User } from '../models/user';
 import { FormControl, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,12 @@ import { FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   userName: FormControl = new FormControl('', Validators.required);
+  newUserName: FormControl = new FormControl('', Validators.required);
+  login: boolean = true;
 
-  constructor(private appService: AppService) { }
+  constructor(
+    private userService: UserService,
+    private appService: AppService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +29,15 @@ export class LoginComponent implements OnInit {
       this.goToHome();
     }
     return isAuthenticated;
+  }
+
+  goToRegisterForm() {
+    this.login = false;
+  }
+
+  register() {
+    this.login = true;
+    this.userService.newUser(this.newUserName.value).subscribe();
   }
 
   goToHome() {

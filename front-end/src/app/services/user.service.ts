@@ -13,4 +13,11 @@ export class UserService {
   getUsers() {
     return this.http.get<User[]>(`${environment.api}/users`);
   }
+
+  newUser(name) {
+    const model = {
+      name
+    };
+    return this.http.post(`${environment.api}/users`, model);
+  }
 }

@@ -22,13 +22,15 @@ module.exports = {
         if (recurrent) {
             let task_week_ids = [];
     
-            const [task_id] = await connection('tasks').insert({
+            const [id] = await connection('tasks').insert({
                 user_id,
                 name,
                 duration,
                 recurrent
             });
-    
+            
+            const task_id = id;
+
             for (const day of days) {
                 let [task_week_id] = await connection('tasks_week').insert({
                     day,
@@ -38,10 +40,10 @@ module.exports = {
                 task_week_ids.push(task_week_id);
             }
     
-            return response.json({ task_id, task_week_ids });
+            return response.json({ id , task_week_ids });
         }
     
-        const [task_id] = await connection('tasks').insert({
+        const [id] = await connection('tasks').insert({
             user_id,
             name,
             duration,
@@ -49,7 +51,7 @@ module.exports = {
             date
         });
         
-        return response.json({ task_id });
+        return response.json({ id });
     },
     async delete (request, response) {
         const { id } = request.params;

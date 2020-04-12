@@ -2,6 +2,7 @@ import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { Task } from '../models/task';
 import { AppService } from '../services/app.service';
+import { TaskView } from '../models/task-view';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { AppService } from '../services/app.service';
 export class HomeComponent implements OnInit {
 
   tasks: Task[] = [];
+  tasksView: TaskView[] = [];
   userId;
 
   private readonly columns = 2;
@@ -23,9 +25,9 @@ export class HomeComponent implements OnInit {
     this.userId = this.appService.UserName;
     this.taskService.Tasks.subscribe(value => {
       this.tasks = value;
-      this.tasks = this.taskService.todayTasks(this.tasks, this.userId);
+      this.tasksView = this.taskService.todayTasks(this.tasks, this.userId);
+      console.log(this.tasksView);
     });
-
   }
 
 
@@ -33,14 +35,14 @@ export class HomeComponent implements OnInit {
    * font: https://stackblitz.com/edit/record-in-every-cell?file=src%2Fapp%2Fapp.component.ts
    */
   public get table(): number[][] {
-    const rowCount = Math.floor(this.tasks.length / this.columns);
-    const remainder = this.tasks.length % this.columns;
+    const rowCount = Math.floor(this.tasksView.length / this.columns);
+    const remainder = this.tasksView.length % this.columns;
     const rows = [];
     for (let i = 0; i < rowCount; i++) {
-      rows.push(this.tasks.slice(i * this.columns, (i * this.columns) + this.columns));
+      rows.push(this.tasksView.slice(i * this.columns, (i * this.columns) + this.columns));
     }
     if (remainder) {
-      rows.push(this.tasks.slice(this.tasks.length - remainder, this.tasks.length));
+      rows.push(this.tasksView.slice(this.tasksView.length - remainder, this.tasksView.length));
     }
     return rows;
   }

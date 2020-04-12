@@ -15,7 +15,8 @@ export class AppService {
 
   private USER_KEY = 'user';
 
-  constructor(private userService: UserService) {
+  constructor(
+    private userService: UserService) {
     this.userService.getUsers().subscribe(value => this.users = value);
 
     if (this.UserName) {

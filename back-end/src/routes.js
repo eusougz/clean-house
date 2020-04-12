@@ -4,6 +4,7 @@ const routes = express.Router();
 const UserController = require('./controllers/UserController');
 const TaskController = require('./controllers/TaskController');
 const TaskWeekController = require('./controllers/TaskWeekController');
+const CompletedTasksController = require('./controllers/CompletedTasksController');
 
 
 routes.get('/users', UserController.getAll );
@@ -27,6 +28,15 @@ routes.get('/tasksWeek', TaskWeekController.getAll );
 routes.get('/tasksWeek/:userId/:taskId', TaskWeekController.getDay );
 
 routes.delete('/tasksWeek/:id', TaskWeekController.delete );
+
+
+routes.get('/completedTasks', CompletedTasksController.getAll );
+
+routes.get('/completedTasks/:taskId', CompletedTasksController.completedTask );
+
+routes.post('/completedTasks', CompletedTasksController.add );
+
+routes.delete('/completedTasks', CompletedTasksController.deleteAll );
 
 
 module.exports = routes;

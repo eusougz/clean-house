@@ -1,7 +1,8 @@
 <div id="login-page" fxLayoutAlign="center center">
 
   <div id="balde" fxLayout fxLayoutAlign="end center">
-    <div fxLayout="column" fxLayoutGap="2%">
+
+    <div *ngIf="login" fxLayout="column" fxLayoutGap="2%">
       <mat-card fxLayout="column">
         <mat-form-field>
           <input matInput [formControl]="userName" placeholder="Quem é você?">
@@ -15,7 +16,22 @@
         </button>
       </mat-card>
       <mat-card fxLayout>
-        <label>Não tem uma conta? <strong class="primary-color" routerLink="">Cadastre-se</strong></label>
+        <label>Não tem uma conta? <strong class="primary-color" (click)="goToRegisterForm()">Cadastre-se</strong></label>
+      </mat-card>
+    </div>
+
+    <div *ngIf="!login">
+      <mat-card fxLayout="column">
+        <mat-form-field>
+          <input matInput [formControl]="newUserName" placeholder="Nome do usuário">
+          <mat-error *ngIf="newUserName.hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent" class="white"
+          (click)="register()">
+            Cadastrar
+        </button>
       </mat-card>
     </div>
   </div>

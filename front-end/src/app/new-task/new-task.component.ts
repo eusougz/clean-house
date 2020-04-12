@@ -62,7 +62,7 @@ export class NewTaskComponent implements OnInit {
         recurrent: true,
         days: this.taskDaysOfWeek
       };
-      this.taskService.addTask(model).subscribe(value => this.taskCreated(value.task_id));
+      this.taskService.addTask(model).subscribe(value => this.taskCreated(value.id));
     } else {
       const model = {
         user_id: this.appService.UserName,
@@ -71,7 +71,7 @@ export class NewTaskComponent implements OnInit {
         recurrent: false,
         date: this.taskDate.value
       };
-      this.taskService.addTask(model).subscribe(value => this.taskCreated(value.task_id));
+      this.taskService.addTask(model).subscribe(value => this.taskCreated(value.id));
     }
   }
 

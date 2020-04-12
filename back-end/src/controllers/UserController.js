@@ -9,7 +9,7 @@ module.exports = {
     async add (request, response) {
         const data = request.body;
         const name = data.name;
-    
+
         const [id] = await connection('users').insert({
             name
         });

@@ -15,6 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
   background-color: mat-color($my-theme-primary);
   color: white;
+  font-weight: 400;
 }
 
 .image-div-size {
@@ -23,10 +24,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
   display: block;
 }
 
+/*
+* Utilities
+*/
+
 .bold {font-weight: bold}
 .text-center {text-align: center}
 .white {color: #fff}
+.black {color: #565656}
 .primary-color {color: mat-color($my-theme-primary)}
 .secundary-color {color: mat-color($my-theme-accent)}
 .bg-primary {background-color: mat-color($my-theme-primary)}
 .bg-accent {background-color: mat-color($my-theme-accent)}
+
+.w-10 {width: 10%}.w-20 {width: 20%}.w-30 {width: 30%}.w-40 {width: 40%}.w-50 {width: 50%}
+.w-60 {width: 60%}.w-70 {width: 70%}.w-80 {width: 80%}.w-90 {width: 90%}.w-100 {width: 100%}
