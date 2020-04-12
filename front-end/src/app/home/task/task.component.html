@@ -10,6 +10,7 @@
   <button class="w-100" mat-stroked-button color="accent" [disabled]="completed"
     (click)="complete()"
   >
-      Concluir
+      <span *ngIf="!completed">Concluir</span>
+      <span *ngIf="completed">Concluido</span>
   </button>
 </mat-card>

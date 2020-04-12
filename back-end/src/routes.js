@@ -14,7 +14,7 @@ routes.post('/users', UserController.add );
 
 routes.get('/tasks', TaskController.getAll );
 
-routes.get('/tasks/:name', TaskController.getByUser );
+routes.get('/tasks/:name', TaskController.getTasksDay );
 
 routes.post('/tasks', TaskController.add );
 

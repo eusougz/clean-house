@@ -11,7 +11,6 @@ import { TaskView } from '../models/task-view';
 })
 export class HomeComponent implements OnInit {
 
-  tasks: Task[] = [];
   tasksView: TaskView[] = [];
   userId;
 
@@ -21,12 +20,10 @@ export class HomeComponent implements OnInit {
     private appService: AppService,
     private taskService: TaskService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.userId = this.appService.UserName;
     this.taskService.Tasks.subscribe(value => {
-      this.tasks = value;
-      this.tasksView = this.taskService.todayTasks(this.tasks, this.userId);
-      console.log(this.tasksView);
+      this.tasksView = value;
     });
   }
 
