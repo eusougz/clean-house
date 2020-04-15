@@ -45,6 +45,8 @@ export class EditComponent implements OnInit {
         days: this.weekDaysSelected
       };
       this.taskService.edit(model).subscribe(() => this.dialogRef.close());
+    } else {
+      this.errorMessage = true;
     }
   }
 
@@ -58,15 +60,9 @@ export class EditComponent implements OnInit {
   }
 
   completedForm() {
-    if (this.taskName.value === '' || this.duration.value === '') {
-      this.errorMessage = true;
+    if (this.taskName.value === '' || this.duration.value === null) {
       return false;
-    } else {
-      this.errorMessage = false;
-      return true;
     }
+    return true;
   }
-
-
-
 }

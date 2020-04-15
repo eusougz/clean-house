@@ -34,6 +34,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 .black {color: #565656}
 .primary-color {color: mat-color($my-theme-primary)}
 .secundary-color {color: mat-color($my-theme-accent)}
+.warn-color {color: mat-color($my-theme-warn)}
 .bg-primary {background-color: mat-color($my-theme-primary)}
 .bg-accent {background-color: mat-color($my-theme-accent)}
 
