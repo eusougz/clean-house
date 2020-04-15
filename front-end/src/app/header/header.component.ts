@@ -19,4 +19,12 @@ export class HeaderComponent implements OnInit {
     this.appService.logout();
   }
 
+  changeDark(e) {
+    if (e.checked) {
+
+    } else {
+
+    }
+  }
+
 }

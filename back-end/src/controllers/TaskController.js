@@ -12,8 +12,69 @@ module.exports = {
         const tasks = await connection('tasks')
             .select('id', 'name', 'duration', 'recurrent', 'date')
             .where('user_id', user.name);
+
+        const tasksWeek = [];
+        
+        for (const task of tasks) {
+            if (task.recurrent) {
+                const daysObjects  = await connection('tasks_week')
+                    .where('task_id', task.id)
+                    .where('user_id', user.name)
+                    .select('day');
+                
+                let days = [];
+                for (const dayObject of daysObjects) {
+                    days.push(parseInt(dayObject.day));
+                }
+
+                tasksWeek.push({ task, days });
+            } else {
+                tasksWeek.push({ task, days: [] });
+            }
+        }
     
-        return response.json(tasks);
+        return response.json(tasksWeek);
+    },
+    async edit (request, response) {
+        const taskWeek = request.body;
+
+        if (taskWeek.days === undefined) {
+            await connection('tasks')
+                .where('id', taskWeek.id)
+                .update({
+                    name: taskWeek.name,
+                    duration: taskWeek.duration,
+                    date: taskWeek.date
+                });
+        } else if (taskWeek.days.lenght !== 0) {
+            const task_id = taskWeek.id;
+
+            await connection('tasks')
+                .where('id',task_id)
+                .update({
+                    name: taskWeek.name,
+                    duration: taskWeek.duration,
+                    date: taskWeek.date
+                });
+            
+            const [{user_id}] =  await connection('tasks_week')
+                .where('task_id', task_id)
+                .select('user_id');
+
+            await connection('tasks_week')
+                .where('task_id', task_id)
+                .del();
+
+            for (const day of taskWeek.days) {
+                await connection('tasks_week').insert({
+                    day,
+                    user_id,
+                    task_id
+                });
+            }
+        }
+
+        return response.status(204).send();
     },
     async add (request, response) {
         const { user_id, name, duration, recurrent, date, days  } = request.body;

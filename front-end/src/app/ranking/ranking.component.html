@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <label class="title" fxFlexOffset="5%">Ranking</label>
+
+
+
+  <mat-card fxFlexOffset="5%" fxLayout="column" fxLayoutAlign="center center" class="w-60 black">
+
+
+    <div fxLayout="column" fxLayoutAlign="center center" class="w-100"
+      *ngFor="let userPoint of userPoints; last as isLast; index as i"
+      [ngClass]="{
+        'first': i == 0,
+        'second': i == 1,
+        'third': i == 2
+      }"
+    >
+      <div fxLayout fxLayoutGap="15%" fxLayoutAlign="center center" class="line-padding w-100">
+        <div fxFlex="50" fxLayoutAlign="center center">
+          <span class="fs-20">{{ userPoint.name }}</span>
+        </div>
+        <div fxFlex="20" fxLayoutAlign="center center">
+          <span class="secundary-color fs-20 fw">{{ userPoint.points }}</span>
+        </div>
+      </div>
+
+      <mat-divider *ngIf="!isLast"></mat-divider>
+    </div>
+
+  </mat-card>
+</div>

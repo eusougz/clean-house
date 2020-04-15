@@ -3,6 +3,7 @@ import { TaskService } from '../services/task.service';
 import { Task } from '../models/task';
 import { AppService } from '../services/app.service';
 import { TaskView } from '../models/task-view';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
@@ -12,17 +13,30 @@ import { TaskView } from '../models/task-view';
 export class HomeComponent implements OnInit {
 
   tasksView: TaskView[] = [];
+  columns = 2;
+  smallScreen: boolean;
+
   userId;
 
-  private readonly columns = 2;
-
   constructor(
+    private observer: BreakpointObserver,
     private appService: AppService,
     private taskService: TaskService) { }
 
   ngOnInit() {
+    this.observer
+    .observe(['(max-width: 900px)'])
+    .subscribe(state => {
+      if (state.matches) {
+        this.smallScreen = true;
+        this.columns = 1;
+      } else {
+        this.smallScreen = false;
+        this.columns = 2;
+      }
+    });
     this.userId = this.appService.UserName;
-    this.taskService.Tasks.subscribe(value => {
+    this.taskService.DayTasks.subscribe(value => {
       this.tasksView = value;
     });
   }

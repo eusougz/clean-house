@@ -14,9 +14,13 @@ routes.post('/users', UserController.add );
 
 routes.get('/tasks', TaskController.getAll );
 
+routes.get('/allTasks/:name', TaskController.getByUser );
+
 routes.get('/tasks/:name', TaskController.getTasksDay );
 
 routes.post('/tasks', TaskController.add );
+
+routes.post('/editTask', TaskController.edit );
 
 routes.delete('/tasks/:id', TaskController.delete );
 

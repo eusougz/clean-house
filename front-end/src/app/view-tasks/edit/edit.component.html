@@ -1,0 +1,49 @@
+<div fxLayout="column" fxLayoutAlign="start center" fxFlex>
+  <mat-form-field appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input matInput [formControl]="taskName" placeholder="Digite o nome da tarefa">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-height">
+    <mat-label>Duração</mat-label>
+    <input matInput [formControl]="duration" placeholder="em minutos" type="number" min="1">
+  </mat-form-field>
+
+  <div *ngIf="recurrent" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center">
+    <mat-button-toggle-group multiple="true" vertical="false" aria-label="dias-semana"
+      (change)="weekDays($event)">
+      <div fxLayout="column">
+        <div fxLayout class="border-bottom">
+          <mat-button-toggle value="6" [checked]="taskWeek.days.includes(6)">Sábado</mat-button-toggle>
+          <mat-button-toggle value="0" [checked]="taskWeek.days.includes(0)">Domingo</mat-button-toggle>
+          <mat-button-toggle value="1" [checked]="taskWeek.days.includes(1)">Segunda</mat-button-toggle>
+        </div>
+        <div fxLayout>
+          <mat-button-toggle value="2" [checked]="taskWeek.days.includes(2)">Terça</mat-button-toggle>
+          <mat-button-toggle value="3" [checked]="taskWeek.days.includes(3)">Quarta</mat-button-toggle>
+          <mat-button-toggle value="4" [checked]="taskWeek.days.includes(4)">Quinta</mat-button-toggle>
+          <mat-button-toggle value="5" [checked]="taskWeek.days.includes(5)">Sexta</mat-button-toggle>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+
+  <div *ngIf="!recurrent" fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="fs-20">
+    <mat-form-field>
+      <mat-label>Data</mat-label>
+      <input matInput [formControl]="taskDate"
+        [matDatepicker]="picker" (dateChange)="onChangeDate($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div fxFlexOffset="5%" fxLayoutAlign="center center" class="w-100">
+    <button fxFlex mat-stroked-button color="accent"
+      (click)="edit()">
+      Editar
+    </button>
+  </div>
+
+
+</div>

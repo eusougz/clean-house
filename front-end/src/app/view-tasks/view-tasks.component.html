@@ -1,0 +1,30 @@
+
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%">
+
+  <label fxFlexOffset="5%" class="title">Tarefas Recorrentes</label>
+
+
+  <div class="w-80" fxLayout fxLayoutGap="5%">
+    <table class="w-100" fxLayout="column" fxLayoutGap="5%">
+      <tr *ngFor="let row of recurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="5%">
+        <td class="w-20"*ngFor="let cell of row; trackBy: trackRecord">
+          <app-task-recurrent [taskWeek]="cell" (refresh)="refresh($event)"></app-task-recurrent>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <label class="title">Tarefas Não Recorrentes</label>
+
+  <div class="w-80" fxLayout fxLayoutGap="5%">
+    <table class="w-100" fxLayout="column" fxLayoutGap="5%">
+      <tr *ngFor="let row of notRecurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="5%">
+        <td  class="w-20"*ngFor="let cell of row; trackBy: trackRecord">
+          <app-task-not-recurrent [task]="cell" (refresh)="refresh($event)"></app-task-not-recurrent>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

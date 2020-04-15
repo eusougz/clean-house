@@ -20,6 +20,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 import { LoginComponent } from './login/login.component';
@@ -34,6 +35,11 @@ import { TaskComponent } from './home/task/task.component';
 import { FadeComponent } from './fade/fade.component';
 import { SuccessComponent } from './common/success/success.component';
 import { FailComponent } from './common/fail/fail.component';
+import { RankingComponent } from './ranking/ranking.component';
+import { ViewTasksComponent } from './view-tasks/view-tasks.component';
+import { TaskRecurrentComponent } from './view-tasks/task-recurrent/task-recurrent.component';
+import { TaskNotRecurrentComponent } from './view-tasks/task-not-recurrent/task-not-recurrent.component';
+import { EditComponent } from './view-tasks/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,12 @@ import { FailComponent } from './common/fail/fail.component';
     TaskComponent,
     FadeComponent,
     SuccessComponent,
-    FailComponent
+    FailComponent,
+    RankingComponent,
+    ViewTasksComponent,
+    TaskRecurrentComponent,
+    TaskNotRecurrentComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +77,8 @@ import { FailComponent } from './common/fail/fail.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSlideToggleModule
   ],
   providers: [
     AppService,
@@ -75,7 +87,8 @@ import { FailComponent } from './common/fail/fail.component';
   ],
   entryComponents: [
     SuccessComponent,
-    FailComponent
+    FailComponent,
+    EditComponent
   ],
   bootstrap: [AppComponent]
 })

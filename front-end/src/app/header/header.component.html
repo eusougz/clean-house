@@ -3,9 +3,13 @@
   <div id="menu" class="bg-primary" fxLayoutAlign="space-between center">
     <div fxFlex="65" fxLayoutGap="5%" fxLayoutAlign="center center">
       <button fxFlex="15" mat-stroked-button routerLink="/home">Home</button>
-      <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button>
+      <button fxFlex="15" mat-stroked-button routerLink="/view-tasks">Tarefas</button>
+      <button fxFlex="15" mat-stroked-button routerLink="/ranking">Ranking</button>
+      <!-- <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button> -->
       <button mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
     </div>
+
+    <mat-slide-toggle color="accent" class="white" (change)="changeDark($event)">Dark</mat-slide-toggle>
 
     <div fxFlex="20" fxLayoutGap="2%" fxLayoutAlign="end center">
       <span class="white">Oie, <strong>{{ userName }}</strong></span>

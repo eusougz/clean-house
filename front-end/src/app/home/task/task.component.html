@@ -11,6 +11,9 @@
     (click)="complete()"
   >
       <span *ngIf="!completed">Concluir</span>
-      <span *ngIf="completed">Concluido</span>
+      <span *ngIf="completed" fxLayoutAlign="center center">
+        Concluido
+        <mat-icon>done</mat-icon>
+      </span>
   </button>
 </mat-card>

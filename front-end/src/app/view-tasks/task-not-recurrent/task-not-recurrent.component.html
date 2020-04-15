@@ -1,0 +1,25 @@
+<mat-card fxLayout="column" fxLayoutAlign="space-between space-between" class="w-100" style="height: fit-content;">
+  <div class="w-100" fxLayout="column" fxLayoutGap="4%" >
+    <div fxLayout>
+      <div class="w-100" fxLayout="column">
+        <label class="data-title black">Nome</label>
+        <span class="data black">{{ task.name }}</span>
+      </div>
+      <button mat-icon-button color="accent" (click)="edit()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </div>
+    <div fxLayout>
+      <div fxFlex="40" class="w-100" fxLayout="column">
+        <label class="data-title black">Duração</label>
+        <div fxLayout fxLayoutAlign="start center">
+          <span class="data black">{{ task.duration }}</span>
+        </div>
+      </div>
+      <div fxFlex="60" fxLayout="column" fxLayoutAlign="start space-between">
+        <label class="data-title black">Dia</label>
+        <span class="data black">{{ task.date.toString().substring(0,10) }}</span>
+      </div>
+    </div>
+  </div>
+</mat-card>
