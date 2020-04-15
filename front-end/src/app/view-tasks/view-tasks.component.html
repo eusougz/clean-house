@@ -1,5 +1,7 @@
 
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%">
+<mat-spinner *ngIf="allTasksWeek===[]"></mat-spinner>
+
+<div *ngIf="allTasksWeek!==[]" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%">
 
   <label fxFlexOffset="5%" class="title">Tarefas Recorrentes</label>
 

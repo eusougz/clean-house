@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TasksWeek } from 'src/app/models/tasks-week';
 import { MatDialog } from '@angular/material/dialog';
 import { EditComponent } from '../edit/edit.component';
+import { DeleteComponent } from '../delete/delete.component';
 
 @Component({
   selector: 'app-task-recurrent',
@@ -20,7 +21,12 @@ export class TaskRecurrentComponent implements OnInit {
 
   edit() {
     this.dialog.open(EditComponent, { data: this.taskWeek })
-      .afterClosed().subscribe(() => this.refresh.emit(''));
+      .afterClosed().subscribe(() => this.refresh.emit(true));
+  }
+
+  delete() {
+    this.dialog.open(DeleteComponent, { data: this.taskWeek.task.id })
+      .afterClosed().subscribe(deleted => this.refresh.emit(deleted));
   }
 
 }

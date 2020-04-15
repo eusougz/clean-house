@@ -1,34 +1,40 @@
 <mat-card fxLayout="column" fxLayoutAlign="space-between space-between" class="w-100" style="height: fit-content;">
-  <div class="w-100" fxLayout="column" fxLayoutGap="4%" >
-    <div fxLayout>
+  <div class="w-100" fxLayout fxLayoutGap="4%" >
+    <div fxFlex fxLayout="column" fxLayoutGap="4%">
       <div class="w-100" fxLayout="column">
         <label class="data-title black">Nome</label>
         <span class="data black">{{ taskWeek.task.name }}</span>
       </div>
-      <button mat-icon-button color="accent" (click)="edit()">
-        <mat-icon>favorite</mat-icon>
-      </button>
+      <div fxLayout>
+        <div fxFlex="40" class="w-100" fxLayout="column">
+          <label class="data-title black">Duração</label>
+          <div fxLayout fxLayoutAlign="start end" fxLayoutGap="1%">
+            <!-- <mat-icon>timer</mat-icon> -->
+            <span class="data black">{{ taskWeek.task.duration }}</span>
+            <!-- <span fxLayoutAlign="end end">minutos</span> -->
+          </div>
+        </div>
+        <div fxFlex="60" fxLayout="column" fxLayoutAlign="start space-between">
+          <label class="data-title black">Dias</label>
+          <div fxLayoutGap="5%">
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(0)}">D</span>
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(1)}">S</span>
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(2)}">T</span>
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(3)}">Q</span>
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(4)}">Q</span>
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(5)}">S</span>
+            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(6)}">S</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div fxLayout>
-      <div fxFlex="40" class="w-100" fxLayout="column">
-        <label class="data-title black">Duração</label>
-        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
-          <!-- <mat-icon>timer</mat-icon> -->
-          <span class="data black">{{ taskWeek.task.duration }}</span>
-        </div>
-      </div>
-      <div fxFlex="60" fxLayout="column" fxLayoutAlign="start space-between">
-        <label class="data-title black">Dias</label>
-        <div fxLayoutGap="5%">
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(0)}">D</span>
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(1)}">S</span>
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(2)}">T</span>
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(3)}">Q</span>
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(4)}">Q</span>
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(5)}">S</span>
-          <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(6)}">S</span>
-        </div>
-      </div>
+    <div fxFlex="18" fxLayout="column" fxLayoutAlign="start end">
+      <button mat-icon-button color="accent" (click)="edit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" (click)="delete()">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
     </div>
   </div>
 </mat-card>

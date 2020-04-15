@@ -21,6 +21,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 import { LoginComponent } from './login/login.component';
@@ -40,6 +42,7 @@ import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 import { TaskRecurrentComponent } from './view-tasks/task-recurrent/task-recurrent.component';
 import { TaskNotRecurrentComponent } from './view-tasks/task-not-recurrent/task-not-recurrent.component';
 import { EditComponent } from './view-tasks/edit/edit.component';
+import { DeleteComponent } from './view-tasks/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,8 @@ import { EditComponent } from './view-tasks/edit/edit.component';
     ViewTasksComponent,
     TaskRecurrentComponent,
     TaskNotRecurrentComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,8 @@ import { EditComponent } from './view-tasks/edit/edit.component';
     MatNativeDateModule,
     MatToolbarModule,
     MatDividerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     AppService,
@@ -88,7 +93,8 @@ import { EditComponent } from './view-tasks/edit/edit.component';
   entryComponents: [
     SuccessComponent,
     FailComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent
   ],
   bootstrap: [AppComponent]
 })

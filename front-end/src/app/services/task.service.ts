@@ -30,6 +30,10 @@ export class TaskService {
     return this.http.post(`${environment.api}/editTask`, model);
   }
 
+  deleteTask(taskId) {
+    return this.http.delete(`${environment.api}/tasks/${taskId}`);
+  }
+
   completeTask(taskId, date) {
     const model = {
       task_id: taskId,

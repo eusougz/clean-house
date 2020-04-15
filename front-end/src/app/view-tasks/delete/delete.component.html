@@ -1,0 +1,11 @@
+<div fxLayout="column" fxLayoutGap="6%">
+  <span>Tem certeza que deseja remover essa tarefa?</span>
+  <div fxLayout fxLayoutGap="6%">
+    <button fxFlex="47" mat-raised-button color="accent" (click)="close(false)">
+      Não
+    </button>
+    <button fxFlex mat-stroked-button color="accent" (click)="deleteTask()">
+      Sim
+    </button>
+  </div>
+</div>

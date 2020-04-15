@@ -31,8 +31,7 @@
   <div *ngIf="!recurrent" fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="fs-20">
     <mat-form-field>
       <mat-label>Data</mat-label>
-      <input matInput [formControl]="taskDate"
-        [matDatepicker]="picker" (dateChange)="onChangeDate($event)">
+      <input matInput [formControl]="taskDate" [matDatepicker]="picker">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker touchUi #picker></mat-datepicker>
     </mat-form-field>

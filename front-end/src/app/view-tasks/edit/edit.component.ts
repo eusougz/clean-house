@@ -49,6 +49,4 @@ export class EditComponent implements OnInit {
     this.weekDaysSelected = e.value;
   }
 
-  onChangeDate(e) {}
-
 }

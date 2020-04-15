@@ -23,10 +23,12 @@ export class ViewTasksComponent implements OnInit {
   }
 
   refresh(e) {
-    this.allTasksWeek = [];
-    this.recurrentTasks = [];
-    this.notRecurrentTasks = [];
-    this.fillTasks();
+    if (e) {
+      this.allTasksWeek = [];
+      this.recurrentTasks = [];
+      this.notRecurrentTasks = [];
+      this.fillTasks();
+    }
   }
 
   fillTasks() {
