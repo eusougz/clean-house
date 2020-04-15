@@ -8,8 +8,8 @@
 
   <div class="w-80" fxLayout fxLayoutGap="5%">
     <table class="w-100" fxLayout="column" fxLayoutGap="5%">
-      <tr *ngFor="let row of recurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="5%">
-        <td class="w-20"*ngFor="let cell of row; trackBy: trackRecord">
+      <tr *ngFor="let row of recurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="6%">
+        <td class="column-width"*ngFor="let cell of row; trackBy: trackRecord">
           <app-task-recurrent [taskWeek]="cell" (refresh)="refresh($event)"></app-task-recurrent>
         </td>
       </tr>

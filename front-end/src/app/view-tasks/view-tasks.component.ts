@@ -2,6 +2,7 @@ import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { TasksWeek } from '../models/tasks-week';
 import { Task } from '../models/task';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-view-tasks',
@@ -14,12 +15,17 @@ export class ViewTasksComponent implements OnInit {
   recurrentTasks: TasksWeek[] = [];
   notRecurrentTasks: Task[] = [];
 
-  columns = 4;
+  columns: number;
 
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService,
+    private observer: BreakpointObserver
+    ) { }
 
   ngOnInit(): void {
     this.fillTasks();
+
+    this.columnsByPageWidth();
   }
 
   refresh(e) {
@@ -41,6 +47,21 @@ export class ViewTasksComponent implements OnInit {
           this.recurrentTasks.push(taskWeek);
         }
       });
+    });
+  }
+
+  columnsByPageWidth() {
+    this.observer.observe(['(max-width: 899px)']).subscribe(state => {
+      if (state.matches) { this.columns = 1; }
+    });
+    this.observer.observe(['(min-width: 900px) and (max-width: 1149px)']).subscribe(state => {
+      if (state.matches) { this.columns = 2; }
+    });
+    this.observer.observe(['(min-width: 1150px) and (max-width: 1599px)']).subscribe(state => {
+      if (state.matches) { this.columns = 3; }
+    });
+    this.observer.observe(['(min-width: 1600px)']).subscribe(state => {
+      if (state.matches) { this.columns = 4; }
     });
   }
 
