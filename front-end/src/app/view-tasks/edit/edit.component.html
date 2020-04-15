@@ -39,9 +39,13 @@
 
   <div fxFlexOffset="5%" fxLayoutAlign="center center" class="w-100">
     <button fxFlex mat-stroked-button color="accent"
-      (click)="edit()">
+      (click)="edit()" [disabled]="!canEdit">
       Editar
     </button>
+  </div>
+
+  <div *ngIf="errorMessage">
+    <span>Preencha todos os campos</span>
   </div>
 
 

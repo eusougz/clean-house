@@ -17,13 +17,15 @@ export class EditComponent implements OnInit {
   taskDate: FormControl;
   weekDaysSelected: string[];
 
+  canEdit = true;
+  errorMessage = false;
+
   constructor(
     private taskService: TaskService,
     public dialogRef: MatDialogRef<EditComponent>,
     @Inject(MAT_DIALOG_DATA) public taskWeek: TasksWeek) { }
 
   ngOnInit(): void {
-    console.log(this.taskWeek);
     if (this.taskWeek.days.length === 0) {
       this.recurrent = false;
     }
@@ -33,20 +35,38 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
-    const model = {
-      id: this.taskWeek.task.id,
-      name: this.taskName.value,
-      duration: this.duration.value,
-      date: this.taskDate.value,
-      recurrent: this.recurrent,
-      days: this.weekDaysSelected
-    };
-    this.taskService.edit(model).subscribe(() => this.dialogRef.close());
-
+    if (this.completedForm()) {
+      const model = {
+        id: this.taskWeek.task.id,
+        name: this.taskName.value,
+        duration: this.duration.value,
+        date: this.taskDate.value,
+        recurrent: this.recurrent,
+        days: this.weekDaysSelected
+      };
+      this.taskService.edit(model).subscribe(() => this.dialogRef.close());
+    }
   }
 
   weekDays(e) {
     this.weekDaysSelected = e.value;
+    if (this.weekDaysSelected.length === 0) {
+      this.canEdit = false;
+    } else {
+      this.canEdit = true;
+    }
   }
+
+  completedForm() {
+    if (this.taskName.value === '' || this.duration.value === '') {
+      this.errorMessage = true;
+      return false;
+    } else {
+      this.errorMessage = false;
+      return true;
+    }
+  }
+
+
 
 }
