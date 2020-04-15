@@ -2,22 +2,67 @@
 
 @include mat-core();
 
+$my-custom-primary-color: (
+  50 : #edfafe,
+  100 : #d2f2fc,
+  200 : #b5e9fa,
+  300 : #97e0f7,
+  400 : #80daf6,
+  500 : #6ad3f4,
+  600 : #62cef3,
+  700 : #57c8f1,
+  800 : #4dc2ef,
+  900 : #3cb7ec,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #d2f1ff,
+  A700 : #b8e9ff,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #000000,
+      600 : #000000,
+      700 : #000000,
+      800 : #000000,
+      900 : #000000,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
 
-  $my-custom-primary-color: (
-    50 : #edfafe,
-    100 : #d2f2fc,
-    200 : #b5e9fa,
-    300 : #97e0f7,
-    400 : #80daf6,
-    500 : #6ad3f4,
-    600 : #62cef3,
-    700 : #57c8f1,
-    800 : #4dc2ef,
-    900 : #3cb7ec,
-    A100 : #ffffff,
-    A200 : #ffffff,
-    A400 : #d2f1ff,
-    A700 : #b8e9ff,
+$my-theme-primary: mat-palette($my-custom-primary-color);
+$my-theme-accent:  mat-palette($mat-light-green);
+$my-theme-warn:    mat-palette($mat-deep-orange);
+
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+@include angular-material-theme($my-theme);
+
+.light-theme {
+  background-color: #fcfcfc;
+}
+
+.dark-theme {
+  $my-dark-primary-color: (
+    50 : #e4f4f9,
+    100 : #bbe4f0,
+    200 : #8ed2e7,
+    300 : #60c0dd,
+    400 : #3eb3d5,
+    500 : #1ca5ce,
+    600 : #199dc9,
+    700 : #1493c2,
+    800 : #118abc,
+    900 : #0979b0,
+    A100 : #dcf2ff,
+    A200 : #a9dfff,
+    A400 : #76cdff,
+    A700 : #5dc3ff,
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -25,32 +70,26 @@
         300 : #000000,
         400 : #000000,
         500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
         A100 : #000000,
         A200 : #000000,
         A400 : #000000,
         A700 : #000000,
     )
   );
-
-  $my-theme-primary: mat-palette($my-custom-primary-color);
-  $my-theme-accent:  mat-palette($mat-light-green);
+  $my-theme-primary: mat-palette($my-dark-primary-color);
+  $my-theme-accent:  mat-palette($mat-lime);
   $my-theme-warn:    mat-palette($mat-deep-orange);
 
-  $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+  $dark-theme: mat-dark-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 
-  @include angular-material-theme($my-theme);
+  @include angular-material-theme($dark-theme);
 
-.dark-mode {
-  $my-theme-primary: mat-palette($mat-amber);
-  $my-theme-accent:  mat-palette($mat-light-green);
-  $my-theme-warn:    mat-palette($mat-deep-orange);
+  background-color: #474747 !important;
 
-  $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 
-  @include angular-material-theme($my-theme);
 }
 

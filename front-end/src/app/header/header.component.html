@@ -1,23 +1,19 @@
-
 <ng-template [ngIf]="appService.userAutheticated()">
   <div id="menu" class="bg-primary" fxLayoutAlign="space-between center">
-    <div fxFlex="65" fxLayoutGap="5%" fxLayoutAlign="center center">
-      <button fxFlex="15" mat-stroked-button routerLink="/home">Home</button>
+    <div fxFlex="65" fxLayoutGap="5%" fxLayoutAlign="start center">
+      <button fxFlex="15" fxFlexOffset="4%" mat-stroked-button routerLink="/home">Home</button>
       <button fxFlex="15" mat-stroked-button routerLink="/view-tasks">Tarefas</button>
-      <button fxFlex="15" mat-stroked-button routerLink="/ranking">Ranking</button>
+      <!-- <button fxFlex="15" mat-stroked-button routerLink="/ranking">Ranking</button> -->
       <!-- <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button> -->
       <button mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
     </div>
 
-    <mat-slide-toggle color="accent" class="white" (change)="changeDark($event)">Dark</mat-slide-toggle>
+    <mat-slide-toggle color="accent" class="white" [checked]="isThemeDark | async"
+      (change)="changeDark($event.checked)">Dark</mat-slide-toggle>
 
     <div fxFlex="20" fxLayoutGap="2%" fxLayoutAlign="end center">
       <span class="white">Oie, <strong>{{ userName }}</strong></span>
-      <button mat-button
-        fxLayoutAlign="center center"
-        (click)="logout()"
-        routerLink="/login"
-      >
+      <button mat-button fxLayoutAlign="center center" (click)="logout()" routerLink="/login">
         <mat-icon>exit_to_app</mat-icon>
         <span>Sair</span>
       </button>
@@ -29,4 +25,3 @@
     </mat-menu>
   </div>
 </ng-template>
-
