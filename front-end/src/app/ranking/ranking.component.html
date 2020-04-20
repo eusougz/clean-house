@@ -1,30 +1,51 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-  <label class="title" fxFlexOffset="5%">Ranking</label>
-
-
-
-  <mat-card fxFlexOffset="5%" fxLayout="column" fxLayoutAlign="center center" class="w-60 black">
-
-
-    <div fxLayout="column" fxLayoutAlign="center center" class="w-100"
-      *ngFor="let userPoint of userPoints; last as isLast; index as i"
-      [ngClass]="{
-        'first': i == 0,
-        'second': i == 1,
-        'third': i == 2
-      }"
-    >
-      <div fxLayout fxLayoutGap="15%" fxLayoutAlign="center center" class="line-padding w-100">
-        <div fxFlex="50" fxLayoutAlign="center center">
-          <span class="fs-20">{{ userPoint.name }}</span>
-        </div>
-        <div fxFlex="20" fxLayoutAlign="center center">
-          <span class="secundary-color fs-20 fw">{{ userPoint.points }}</span>
-        </div>
+  <!-- <div fxLayout="column" fxLayoutGap="2%" fxFlexOffset="3%" class="w-50">
+    <div fxLayout fxLayoutAlign="space-between center" class="table-header">
+      <div class="w-10"></div>
+      <div class="w-60">Nome</div>
+      <div class="text-center w-30">
+        Pontuação
+        <mat-icon>bar_chart</mat-icon>
       </div>
-
-      <mat-divider *ngIf="!isLast"></mat-divider>
     </div>
+    <div *ngFor="let userPoint of userPoints; last as isLast; index as i" fxLayout fxLayoutAlign="start center" class="data-row">
+      <div class="w-10 height-100" fxLayoutAlign="start center"
+        [ngClass]="{
+          'first': i == 0,
+          'second': i == 1,
+          'third': i == 2
+        }">
+        <span class="ml-5">{{ i+1 }}</span>
+      </div>
+      <div class="w-60">{{ userPoint.name }}</div>
+      <div class="text-center w-30">{{ userPoint.points }}</div>
+    </div>
+  </div> -->
 
-  </mat-card>
+  <div fxLayout="column" fxLayoutGap="2%" fxFlexOffset="3%" [ngClass]="{ 'w-90': smallScreen, 'w-60': !smallScreen }">
+    <div fxLayout fxLayoutAlign="space-between center" class="table-header">
+      <div class="w-10"></div>
+      <div class="w-90 white fw-500">Heróis da casa</div>
+    </div>
+    <div *ngFor="let userPoint of userPoints; last as isLast; index as i" fxLayout fxLayoutAlign="start center" class="data-row">
+      <div class="w-10 height-100" fxLayoutAlign="start center"
+        [ngClass]="{
+          'first': i == 0,
+          'second': i == 1,
+          'third': i == 2
+        }">
+        <span class="ml-5">{{ i+1 }}</span>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-between start" class="height-60">
+        <div class="w-100">{{ userPoint.name }}</div>
+        <div class="text-center data-points w-100"
+          [ngClass]="{
+            'first-color': i == 0,
+            'second-color': i == 1,
+            'third-color': i == 2
+          }"
+        >{{ userPoint.points }} minutos contribuídos</div>
+      </div>
+    </div>
+  </div>
 </div>

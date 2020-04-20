@@ -40,8 +40,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 
 .w-10 {width: 10%}.w-20 {width: 20%}.w-30 {width: 30%}.w-40 {width: 40%}.w-50 {width: 50%}
 .w-60 {width: 60%}.w-70 {width: 70%}.w-80 {width: 80%}.w-90 {width: 90%}.w-100 {width: 100%}
-.height-100 {height: 100%; background-color: #fcfcfc;}
+.height-100 {height: 100%;}
 
-.first {background-color: mat-color($my-theme-primary, 200)}
-.second {background-color: mat-color($my-theme-primary, 100) }
-.third {background-color: mat-color($my-theme-primary, 50)}
+.first {border-left: 3px solid mat-color($my-theme-accent, 600);}
+.second {border-left: 3px solid mat-color($my-theme-primary, 700);}
+.third {border-left: 3px solid mat-color($my-theme-primary, 400);}
+
+.first-color {color: mat-color($my-theme-accent, 600) !important;}
+.second-color {color: mat-color($my-theme-primary, 700) !important;}
+.third-color {color: mat-color($my-theme-primary, 400) !important;}
+
+.table-header{background-image: linear-gradient(to bottom right, mat-color($my-theme-accent, 400), mat-color($my-theme-accent, 200));}

@@ -55,7 +55,7 @@ module.exports = {
                 
                 isToday = service.currentDay(days);
             } else {
-                isToday = service.currentDate(task);
+                isToday = service.currentDate(task.date);
             }
             
             if (isToday) {

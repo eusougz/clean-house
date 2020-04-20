@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPoints } from '../models/user-points';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-ranking',
@@ -8,6 +9,8 @@ import { UserPoints } from '../models/user-points';
 })
 export class RankingComponent implements OnInit {
 
+  smallScreen: boolean;
+
   userPoints: UserPoints[] = [
     {
       name: 'gilberto.giacomin',
@@ -15,21 +18,29 @@ export class RankingComponent implements OnInit {
     },
     {
       name: 'guilherme.giacomin',
-      points: 680
+      points: 600
     },
     {
       name: 'teteu.giacomin',
-      points: 450
+      points: 590
     },
     {
       name: 'rose.giacomin',
-      points: 440
+      points: 580
+    },
+    {
+      name: 'camila.giacomin',
+      points: 0
     }
   ];
 
-  constructor() { }
+  constructor(private observer: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.smallScreen = false;
+    this.observer.observe(['(max-width: 900px)']).subscribe(state => {
+      if (state.matches) { this.smallScreen = true; }
+    });
   }
 
 }

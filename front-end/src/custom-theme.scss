@@ -36,7 +36,7 @@ $my-custom-primary-color: (
 );
 
 $my-theme-primary: mat-palette($my-custom-primary-color);
-$my-theme-accent:  mat-palette($mat-light-green);
+$my-theme-accent:  mat-palette($mat-lime);
 $my-theme-warn:    mat-palette($mat-deep-orange);
 
 $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
@@ -81,7 +81,7 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
     )
   );
   $my-theme-primary: mat-palette($my-dark-primary-color);
-  $my-theme-accent:  mat-palette($mat-lime);
+  $my-theme-accent:  mat-palette($mat-light-green);
   $my-theme-warn:    mat-palette($mat-deep-orange);
 
   $dark-theme: mat-dark-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);

@@ -1,9 +1,7 @@
 module.exports = {
-    currentDate(task) {
+    currentDate(taskDate) {
         const today = new Date();
-        return task.date.getDate() === today.getDate()
-            && task.date.getMonth() === today.getMonth()
-            && task.date.getFullYear() === today.getFullYear();
+        return taskDate.substring(0,10) === today.toISOString().substring(0,10);
     },
     currentDay(days) {
         let isToday = false;

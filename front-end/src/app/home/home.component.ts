@@ -24,8 +24,7 @@ export class HomeComponent implements OnInit {
     private taskService: TaskService) { }
 
   ngOnInit() {
-    this.observer
-    .observe(['(max-width: 900px)'])
+    this.observer.observe(['(max-width: 900px)'])
     .subscribe(state => {
       if (state.matches) {
         this.smallScreen = true;
