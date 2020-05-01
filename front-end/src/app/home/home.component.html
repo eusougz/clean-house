@@ -1,7 +1,12 @@
 
 <div fxLayout="column" fxLayoutGap="3%" fxFlex fxLayoutAlign="start center">
 
-  <label class="title" fxFlexOffset="5%" >Tarefas do dia</label>
+  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%" fxFlexOffset="5%" class="title"
+    [ngClass]="{'w-50': !smallScreen, 'w-80': smallScreen}"
+  >
+    <mat-icon>house</mat-icon>
+    <span>Tarefas do dia</span>
+  </div>
 
   <table [ngClass]="{'w-50': !smallScreen, 'w-80': smallScreen}" fxLayout="column" fxLayoutGap="5%">
     <tr *ngFor="let row of table; trackBy: trackRow" fxLayout>
@@ -12,20 +17,24 @@
     </tr>
   </table>
 
-  <!-- <div *ngIf="tasks.length === 0" fxLayout="column" fxLayoutGap="5%" class="black">
-    <span class="fs-50">07/04,</span>
-    <label class="fs-18">Nenhuma tarefa para hoje</label>
-    <div fxLayoutAlign="center center" class="mt-15">
-      <label class="fs-25 w-90">Aproveite para descansar </label>
-      <mat-icon class="fs-28 w-10 primary-color">mood</mat-icon>
-    </div>
-    <div fxLayout fxLayoutAlign="center center">
-      <mat-divider class="w-40"></mat-divider>
-      <span class="w-20 fs-25" fxLayoutAlign="center center">ou</span>
-      <mat-divider class="w-40"></mat-divider>
-    </div>
-    <button mat-stroked-button color="accent" class="fs-25 consult-btn">Consultar tarefas pendentes</button>
-  </div> -->
+  <div *ngIf="noTasksToday" id="no-tasks" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5%" class="text-color">
+    <!-- <div> -->
+      <span class="fs-50">01/05,</span>
+      <label class="fs-25">Nenhuma tarefa para hoje</label>
+      <!-- <label class="fs-18">Aproveite para descansar </label> -->
+      <!-- <div fxLayoutAlign="center center"> -->
+
+        <!-- <mat-icon class="fs-28 w-10 primary-color">mood</mat-icon> -->
+      <!-- </div>
+      <div fxLayout fxLayoutAlign="center center">
+        <mat-divider class="w-40"></mat-divider>
+        <span class="w-20 fs-25" fxLayoutAlign="center center">ou</span>
+        <mat-divider class="w-40"></mat-divider>
+      </div>
+      <button mat-stroked-button color="accent" class="fs-25 consult-btn">Visualizar tarefas</button> -->
+    <!-- </div> -->
+    <!-- <div class="sleep-img"></div> -->
+  </div>
 
 </div>
 

@@ -15,16 +15,21 @@ export class ViewTasksComponent implements OnInit {
   recurrentTasks: TasksWeek[] = [];
   notRecurrentTasks: Task[] = [];
 
+  noRecurrentTasks = false;
+  noNotRecurrentTasks = false;
+
   columns: number;
 
   constructor(
     private taskService: TaskService,
     private observer: BreakpointObserver
-    ) { }
+    ) {
+      console.log(this.allTasksWeek);
+    }
 
   ngOnInit(): void {
     this.fillTasks();
-
+    /* Resposivity */
     this.columnsByPageWidth();
   }
 
@@ -40,6 +45,7 @@ export class ViewTasksComponent implements OnInit {
   fillTasks() {
     this.taskService.AllTasks.subscribe(value => {
       this.allTasksWeek = value;
+
       this.allTasksWeek.forEach(taskWeek => {
         if (taskWeek.days.length === 0) {
           this.notRecurrentTasks.push(taskWeek.task);
@@ -47,6 +53,9 @@ export class ViewTasksComponent implements OnInit {
           this.recurrentTasks.push(taskWeek);
         }
       });
+
+      this.setNoNotRecurrentTasksValue();
+      this.setNoRecurrentTasksValue();
     });
   }
 
@@ -63,6 +72,14 @@ export class ViewTasksComponent implements OnInit {
     this.observer.observe(['(min-width: 1600px)']).subscribe(state => {
       if (state.matches) { this.columns = 4; }
     });
+  }
+
+  setNoRecurrentTasksValue() {
+    if (this.recurrentTasks.length === 0) { this.noRecurrentTasks = true; }
+  }
+
+  setNoNotRecurrentTasksValue() {
+    if (this.notRecurrentTasks.length === 0) { this.noNotRecurrentTasks = true; }
   }
 
   /**

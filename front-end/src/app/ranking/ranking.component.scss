@@ -9,7 +9,7 @@
 }
 .table-header{
   font-size: 25px;
-  height: 100px;
+  height: 40px;
 }
 .height-60 {
   height: 60%
@@ -17,9 +17,16 @@
 .data-row {
   font-size: 22px;
   height: 80px;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #f2f2f2;
-  border-right: 1px solid #f2f2f2;
+  border-radius: 0px 35px 35px 0px;
+  width: 96%;
+  transition: width 1s;
+  transition-timing-function: ease-in-out;
+
+}
+.data-row:hover {
+  width: 100%;
+  transition: width 400ms;
+  transition-timing-function: ease-in-out;
 }
 .data-points {
   font-size: 18px;
@@ -33,5 +40,9 @@
   padding: 20px 20px 20px 20px;
 }
 .fw {
+  font-weight: 400;
+}
+.position {
+  font-size: 16px;
   font-weight: 400;
 }

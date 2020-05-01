@@ -2,19 +2,19 @@
   <div class="w-100" fxLayout fxLayoutGap="4%">
     <div fxFlex fxLayout="column" fxLayoutGap="4%">
       <div class="w-100" fxLayout="column">
-        <label class="data-title black">Nome</label>
-        <span class="data black">{{ task.name }}</span>
+        <label class="data-title text-color">Nome</label>
+        <span class="data text-color">{{ task.name }}</span>
       </div>
       <div fxLayout>
         <div fxFlex="40" class="w-100" fxLayout="column">
-          <label class="data-title black">Duração</label>
+          <label class="data-title text-color">Duração</label>
           <div fxLayout fxLayoutAlign="start center">
-            <span class="data black">{{ task.duration }}</span>
+            <span class="data text-color">{{ task.duration }}</span>
           </div>
         </div>
         <div fxFlex="60" fxLayout="column" fxLayoutAlign="start space-between">
-          <label class="data-title black">Dia</label>
-          <span class="data black">{{ task.date.toString().substring(0,10) }}</span>
+          <label class="data-title text-color">Dia</label>
+          <span class="data text-color">{{ task.date.toString().substring(0,10) }}</span>
         </div>
       </div>
     </div>

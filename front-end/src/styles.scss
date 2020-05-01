@@ -6,7 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 @import './custom-theme.scss';
 
 .title {
-  font-size: 25px;
+  font-size: 28px;
   font-weight: 200;
   color: mat-color($my-theme-primary);
 }
@@ -31,7 +31,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 .bold {font-weight: bold}
 .text-center {text-align: center}
 .white {color: #fff}
-// .black {color: #565656}
 .primary-color {color: mat-color($my-theme-primary)}
 .secundary-color {color: mat-color($my-theme-accent)}
 .warn-color {color: mat-color($my-theme-warn)}
@@ -42,12 +41,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 .w-60 {width: 60%}.w-70 {width: 70%}.w-80 {width: 80%}.w-90 {width: 90%}.w-100 {width: 100%}
 .height-100 {height: 100%;}
 
-.first {border-left: 3px solid mat-color($my-theme-accent, 600);}
-.second {border-left: 3px solid mat-color($my-theme-primary, 700);}
-.third {border-left: 3px solid mat-color($my-theme-primary, 400);}
+.fw-500 {font-weight: 500}
 
-.first-color {color: mat-color($my-theme-accent, 600) !important;}
-.second-color {color: mat-color($my-theme-primary, 700) !important;}
-.third-color {color: mat-color($my-theme-primary, 400) !important;}
 
-.table-header{background-image: linear-gradient(to bottom right, mat-color($my-theme-accent, 400), mat-color($my-theme-accent, 200));}
+
+// .table-header{background-image: linear-gradient(to bottom right, mat-color($my-theme-accent, 400), mat-color($my-theme-accent, 200));}
+// .table-header{background-color: mat-color($my-theme-accent);}

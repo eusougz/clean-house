@@ -13,10 +13,12 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 export class HomeComponent implements OnInit {
 
   tasksView: TaskView[] = [];
-  columns = 2;
   smallScreen: boolean;
+  columns = 2;
 
   userId;
+
+  noTasksToday = false;
 
   constructor(
     private observer: BreakpointObserver,
@@ -37,9 +39,15 @@ export class HomeComponent implements OnInit {
     this.userId = this.appService.UserName;
     this.taskService.DayTasks.subscribe(value => {
       this.tasksView = value;
+      this.setNoTasksToday();
     });
   }
 
+  setNoTasksToday() {
+    if (this.tasksView.length === 0 ) {
+      this.noTasksToday = true;
+    }
+  }
 
   /**
    * font: https://stackblitz.com/edit/record-in-every-cell?file=src%2Fapp%2Fapp.component.ts

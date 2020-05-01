@@ -2,28 +2,28 @@
   <div class="w-100" fxLayout fxLayoutGap="4%" >
     <div fxFlex fxLayout="column" fxLayoutGap="4%">
       <div class="w-100" fxLayout="column">
-        <label class="data-title black">Nome</label>
-        <span class="data black">{{ taskWeek.task.name }}</span>
+        <label class="data-title text-color">Nome</label>
+        <span class="data text-color">{{ taskWeek.task.name }}</span>
       </div>
       <div fxLayout>
         <div fxFlex="40" class="w-100" fxLayout="column">
-          <label class="data-title black">Duração</label>
+          <label class="data-title text-color">Duração</label>
           <div fxLayout fxLayoutAlign="start end" fxLayoutGap="1%">
             <!-- <mat-icon>timer</mat-icon> -->
-            <span class="data black">{{ taskWeek.task.duration }}</span>
+            <span class="data text-color">{{ taskWeek.task.duration }}</span>
             <!-- <span fxLayoutAlign="end end">minutos</span> -->
           </div>
         </div>
         <div fxFlex="60" fxLayout="column" fxLayoutAlign="start space-between">
-          <label class="data-title black">Dias</label>
+          <label class="data-title text-color">Dias</label>
           <div fxLayoutGap="5%">
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(0)}">D</span>
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(1)}">S</span>
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(2)}">T</span>
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(3)}">Q</span>
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(4)}">Q</span>
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(5)}">S</span>
-            <span class="data" [ngClass]="{'primary-color': taskWeek.days.includes(6)}">S</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(0)}">D</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(1)}">S</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(2)}">T</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(3)}">Q</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(4)}">Q</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(5)}">S</span>
+            <span class="data" [ngClass]="{'primary-color fw-500': taskWeek.days.includes(6)}">S</span>
           </div>
         </div>
       </div>

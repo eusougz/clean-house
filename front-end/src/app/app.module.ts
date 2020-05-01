@@ -43,6 +43,10 @@ import { TaskRecurrentComponent } from './view-tasks/task-recurrent/task-recurre
 import { TaskNotRecurrentComponent } from './view-tasks/task-not-recurrent/task-not-recurrent.component';
 import { EditComponent } from './view-tasks/edit/edit.component';
 import { DeleteComponent } from './view-tasks/delete/delete.component';
+import { MenuNavComponent } from './header/menu-nav/menu-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,8 @@ import { DeleteComponent } from './view-tasks/delete/delete.component';
     TaskRecurrentComponent,
     TaskNotRecurrentComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
+    MenuNavComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +88,10 @@ import { DeleteComponent } from './view-tasks/delete/delete.component';
     MatToolbarModule,
     MatDividerModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [
     AppService,

@@ -27,3 +27,13 @@
   font-weight: 300;
   line-height: 2.5em;
 }
+#no-tasks {
+  height: 540px;
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/img/sleep.png');
+}

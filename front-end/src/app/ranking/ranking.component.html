@@ -25,26 +25,32 @@
   <div fxLayout="column" fxLayoutGap="2%" fxFlexOffset="3%" [ngClass]="{ 'w-90': smallScreen, 'w-60': !smallScreen }">
     <div fxLayout fxLayoutAlign="space-between center" class="table-header">
       <div class="w-10"></div>
-      <div class="w-90 white fw-500">Heróis da casa</div>
+      <div class="w-90 title" fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
+        <mat-icon>star</mat-icon>
+        <span>Heróis da casa</span>
+      </div>
     </div>
     <div *ngFor="let userPoint of userPoints; last as isLast; index as i" fxLayout fxLayoutAlign="start center" class="data-row">
-      <div class="w-10 height-100" fxLayoutAlign="start center"
+      <div class="w-10 height-100 position-div" fxLayoutAlign="start center"
         [ngClass]="{
           'first': i == 0,
           'second': i == 1,
           'third': i == 2
         }">
-        <span class="ml-5">{{ i+1 }}</span>
+        <span class="position ml-5">{{ i+1 }}</span>
       </div>
-      <div fxLayout="column" fxLayoutAlign="space-between start" class="height-60">
-        <div class="w-100">{{ userPoint.name }}</div>
-        <div class="text-center data-points w-100"
+      <div fxLayout.gt-sm fxLayout.lt-md="column" fxLayoutAlign="space-between start" class="w-100 height-60">
+        <div fxLayoutAlign="start center" class="w-100 height-100">{{ userPoint.name }}</div>
+        <div fxLayoutAlign="start center" class="text-center data-points w-100 height-100" fxLayoutGap="1%"
           [ngClass]="{
             'first-color': i == 0,
             'second-color': i == 1,
             'third-color': i == 2
           }"
-        >{{ userPoint.points }} minutos contribuídos</div>
+        >
+        <span fxFlex="6" fxLayoutAlign="end center">{{ userPoint.points }}</span>
+        <span>minutos contribuídos</span>
+      </div>
       </div>
     </div>
   </div>
