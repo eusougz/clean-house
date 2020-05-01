@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -22,9 +21,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { IgxAvatarModule } from "igniteui-angular";
 
-
-
+//I keep the new line
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NewTaskComponent } from './new-task/new-task.component';
@@ -74,6 +73,7 @@ import { MatListModule } from '@angular/material/list';
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
+    IgxAvatarModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
@@ -106,4 +106,5 @@ import { MatListModule } from '@angular/material/list';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

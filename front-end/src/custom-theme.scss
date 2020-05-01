@@ -55,6 +55,8 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 
 .position-div {border-left: 6px solid #eaeaea}
 
+.border-accent {border: 3px solid mat-color($my-theme-accent);}
+
 .first {border-left: 6px solid mat-color($my-theme-accent, 600);}
 .second {border-left: 6px solid mat-color($my-theme-primary, 700);}
 .third {border-left: 6px solid mat-color($my-theme-primary, 400);}
@@ -111,11 +113,13 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 
   .data-row {
     color: white;
-    background-color: #282828;
+    background-color: #424242;
     border: none;
   }
 
   .position-div {border-left: 6px solid #848484}
+
+  .border-accent {border: 3px solid mat-color($my-theme-accent);}
 
   .first {border-left: 6px solid mat-color($my-theme-accent, 600);}
   .second {border-left: 6px solid mat-color($my-theme-primary, 700);}

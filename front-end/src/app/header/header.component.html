@@ -1,7 +1,7 @@
 <ng-template [ngIf]="appService.userAutheticated()">
   <!-- <div fxHide.lt-md id="menu" class="bg-primary" fxLayoutAlign="space-between center"> -->
   <div id="menu" class="bg-primary" fxLayoutAlign="space-between center">
-    <div fxFlex="65" fxLayoutGap="5%" fxLayoutAlign="start center">
+    <div fxFlex="55" fxLayoutGap="5%" fxLayoutAlign="start center">
       <button fxFlex="15" fxFlexOffset="4%" mat-stroked-button routerLink="/home">Home</button>
       <button fxFlex="15" mat-stroked-button routerLink="/view-tasks">Tarefas</button>
       <button fxFlex="15" mat-stroked-button routerLink="/ranking">Ranking</button>
@@ -10,10 +10,23 @@
     </div>
 
     <mat-slide-toggle color="accent" class="white" [checked]="isThemeDark | async"
-      (change)="changeDark($event.checked)">Dark</mat-slide-toggle>
+      (change)="changeDark($event.checked)">
+      Dark
+    </mat-slide-toggle>
 
-    <div fxFlex="20" fxLayoutGap="2%" fxLayoutAlign="end center">
-      <span class="white">Oie, <strong>{{ userName }}</strong></span>
+    <div fxFlex="35" fxLayoutGap="2%" fxLayoutAlign="end center">
+      <div fxLayout fxLayoutAlign="center center" fxLayoutGap="3%" class="white">
+
+        <!-- <div class="avatar-sample">
+          <igx-avatar initials="GG" [roundShape]="'true'" bgColor="#EA6B00" color="white" size="small"></igx-avatar>
+        </div> -->
+
+        <div class="avatar-sample">
+          <igx-avatar src="../../assets/img/profile-pic/perfil.jpg" roundShape="true" size="small" class="border-accent"></igx-avatar>
+        </div>
+
+        <strong>{{ userName }}</strong>
+      </div>
       <button mat-button fxLayoutAlign="center center" (click)="logout()" routerLink="/login">
         <mat-icon>exit_to_app</mat-icon>
         <span>Sair</span>

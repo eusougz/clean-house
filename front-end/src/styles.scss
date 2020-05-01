@@ -1,7 +1,9 @@
+// CSS Reset, comment out if not required or using a different module
+@import '~minireset.css/minireset';
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight: 300 !important ;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif !important; font-weight: 300 !important ;}
 
 @import './custom-theme.scss';
 
@@ -47,3 +49,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-weight
 
 // .table-header{background-image: linear-gradient(to bottom right, mat-color($my-theme-accent, 400), mat-color($my-theme-accent, 200));}
 // .table-header{background-color: mat-color($my-theme-accent);}
+
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+/* autoprefixer grid: on */
+
+@include igx-core();
+@include igx-theme($default-palette);

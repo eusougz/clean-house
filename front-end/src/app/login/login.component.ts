@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     private appService: AppService) { }
 
   ngOnInit(): void {
+    this.appService.logout();
   }
 
   auth() {
