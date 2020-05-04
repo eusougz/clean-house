@@ -1,29 +1,94 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      mode="over"
-      opened="false">
-    <!-- <mat-toolbar>Menu</mat-toolbar> -->
-    <mat-nav-list fxLayout="column" fxLayoutAlign="center center">
-      <a mat-list-item routerLink="/home">Home</a>
-      <a mat-list-item routerLink="/view-tasks">Tarefas</a>
-      <a mat-list-item routerLink="/ranking">Ranking</a>
-      <button mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
 
+  <div class="h-inherit" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar *ngIf="appService.userAutheticated()" color="primary" class="example-toolbar">
 
+      <!-- Mobile Header -->
+      <div fxHide.gt-sm fxLayout>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon class="white">menu</mat-icon>
+        </button>
+      </div>
 
+      <!-- Desktop Header -->
+      <div fxHide.lt-md id="menu" class="bg-primary w-100" fxLayoutAlign="space-between center">
+        <div fxFlex="55" fxLayoutGap="5%" fxLayoutAlign="start center">
+          <button fxFlex="15" fxFlexOffset="4%" mat-stroked-button routerLink="/home">Home</button>
+          <button fxFlex="15" mat-stroked-button routerLink="/view-tasks">Tarefas</button>
+          <button fxFlex="15" mat-stroked-button routerLink="/ranking">Ranking</button>
+          <!-- <button fxFlex="15" mat-stroked-button [matMenuTriggerFor]="visualizar">Visualizar</button> -->
+          <button mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
+        </div>
+
+        <mat-slide-toggle color="accent" class="white fs-17" [checked]="isThemeDark | async"
+          (change)="changeDark($event.checked)">
+          Dark
+        </mat-slide-toggle>
+
+        <div fxFlex="35" fxLayoutGap="2%" fxLayoutAlign="end center">
+          <div fxLayout fxLayoutAlign="center center" fxLayoutGap="3%" class="white">
+
+            <!-- <div class="avatar-sample">
+              <igx-avatar initials="GG" [roundShape]="'true'" bgColor="#EA6B00" color="white" size="small"></igx-avatar>
+            </div> -->
+
+            <div class="avatar-sample">
+              <igx-avatar src="../../assets/img/profile-pic/perfil.jpg" roundShape="true" size="small" class="border-accent"></igx-avatar>
+            </div>
+
+            <strong class="fs-15">{{ userName }}</strong>
+          </div>
+          <button mat-button fxLayoutAlign="center center" (click)="logout()" routerLink="/login">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Sair</span>
+          </button>
+        </div>
+
+        <mat-menu #visualizar="matMenu">
+          <button mat-menu-item>Tarefas Pendentes</button>
+          <button mat-menu-item>Tarefas Semanais</button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+
+
+    <mat-sidenav-container class="h-inherit">
+      <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        mode="over"
+        opened="false">
+        <div fxLayout="column" fxLayoutGap="15%">
+          <div fxFlexOffset="15%" fxLayout="column">
+            <div class="avatar-sample" fxLayoutAlign="center center">
+              <igx-avatar src="../../assets/img/profile-pic/perfil.jpg" roundShape="true" size="large" class="border-accent"></igx-avatar>
+            </div>
+            <strong class="fs-15" fxLayoutAlign="center center">{{ userName }}</strong>
+          </div>
+
+          <mat-nav-list fxFlexOffset="10%" fxLayout="column" fxLayoutAlign="center center" (click)="drawer.close()">
+            <a mat-list-item routerLink="/home" fxLayoutAlign="center center">Home</a>
+            <a mat-list-item routerLink="/view-tasks" fxLayoutAlign="center center">Tarefas</a>
+            <a mat-list-item routerLink="/ranking" fxLayoutAlign="center center">Ranking</a>
+            <button mat-raised-button color="accent" routerLink="/new-task">+ Nova Tarefa</button>
+          </mat-nav-list>
+
+          <div fxFlexOffset="10%" fxLayoutAlign="center center">
+            <mat-slide-toggle color="accent" class="text-color fs-17" [checked]="isThemeDark | async"
+              (change)="changeDark($event.checked)">
+              Dark
+            </mat-slide-toggle>
+          </div>
+
+          <button mat-button fxLayoutAlign="center center" (click)="logout()" routerLink="/login">
+            <mat-icon>exit_to_app</mat-icon>
+            <span class="text-color fw-300 fs-17">Sair</span>
+          </button>
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <ng-content></ng-content>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+

@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutGap="3%" fxFlex fxLayoutAlign="start center">
 
-  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%" fxFlexOffset="5%" class="title"
+  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%" fxFlexOffset="3%" class="title"
     [ngClass]="{'w-50': !smallScreen, 'w-80': smallScreen}"
   >
     <mat-icon>house</mat-icon>
@@ -16,23 +16,12 @@
     </tr>
   </table>
 
-  <div *ngIf="noTasksToday" id="no-tasks" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5%" class="text-color">
-    <!-- <div> -->
+  <div *ngIf="noTasksToday" id="no-tasks" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5%"
+    [ngClass]="{'w-50': !smallScreen, 'w-100': smallScreen}" class="text-color">
+    <div fxLayout="column" fxLayoutGap="5%" [ngClass]="{'ml-10': smallScreen}">
       <span class="fs-50">01/05,</span>
       <label class="fs-25">Nenhuma tarefa para hoje</label>
-      <!-- <label class="fs-18">Aproveite para descansar </label> -->
-      <!-- <div fxLayoutAlign="center center"> -->
-
-        <!-- <mat-icon class="fs-28 w-10 primary-color">mood</mat-icon> -->
-      <!-- </div>
-      <div fxLayout fxLayoutAlign="center center">
-        <mat-divider class="w-40"></mat-divider>
-        <span class="w-20 fs-25" fxLayoutAlign="center center">ou</span>
-        <mat-divider class="w-40"></mat-divider>
-      </div>
-      <button mat-stroked-button color="accent" class="fs-25 consult-btn">Visualizar tarefas</button> -->
-    <!-- </div> -->
-    <!-- <div class="sleep-img"></div> -->
+    </div>
   </div>
 
 </div>

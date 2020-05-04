@@ -1,11 +1,8 @@
-<div class="height-100"
-  [ngClass]="{'dark-theme': isThemeDark | async}">
-  <app-header>
-
-  </app-header>
-
-  <div class="bg-color">
-    <router-outlet></router-outlet>
-  </div>
+<div [ngClass]="{'dark-theme': isThemeDark | async}" class="h-inherit bg-color" >
+  <app-menu-nav class="h-inherit">
+    <div class="bg-color">
+      <router-outlet></router-outlet>
+    </div>
+  </app-menu-nav>
 </div>
 

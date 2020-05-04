@@ -28,11 +28,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.observer.observe(['(max-width: 900px)'])
     .subscribe(state => {
+      this.smallScreen = state.matches;
       if (state.matches) {
-        this.smallScreen = true;
         this.columns = 1;
       } else {
-        this.smallScreen = false;
         this.columns = 2;
       }
     });

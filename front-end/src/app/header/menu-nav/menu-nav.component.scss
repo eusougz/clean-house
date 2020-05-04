@@ -1,17 +1,14 @@
-.sidenav-container {
-  height: 100%;
+#menu {
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
 }
-
+#menu button {
+  color: white;
+  border-color: white;
+}
 .sidenav {
-  width: 200px;
+  min-width: 50%;
 }
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
+.fs-17 {font-size: 17px;}
+.fs-15 {font-size: 15px;}
+.fw-300 {font-weight: 300;}
