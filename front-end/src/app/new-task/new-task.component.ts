@@ -5,6 +5,7 @@ import { AppService } from '../services/app.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessComponent } from '../common/success/success.component';
 import { FailComponent } from '../common/fail/fail.component';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-new-task',
@@ -13,6 +14,8 @@ import { FailComponent } from '../common/fail/fail.component';
 })
 export class NewTaskComponent implements OnInit {
 
+
+  smallScreen: boolean;
 
   canRegister = false;
 
@@ -24,6 +27,7 @@ export class NewTaskComponent implements OnInit {
 
 
   constructor(
+    private observer: BreakpointObserver,
     private appService: AppService,
     private taskService: TaskService,
     private dialog: MatDialog
@@ -34,6 +38,10 @@ export class NewTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.observer.observe(['(max-width: 900px)'])
+    .subscribe(state => {
+      this.smallScreen = state.matches;
+    });
   }
 
   isRecurrent(e) {

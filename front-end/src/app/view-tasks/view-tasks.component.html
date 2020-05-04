@@ -5,14 +5,14 @@
 
 <div *ngIf="allTasksWeek !== undefined" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%">
 
-  <div fxLayout fxLayoutGap="1%" fxFlexOffset="5%" class="w-100 title" fxLayoutAlign="center center">
+  <div fxLayout fxLayoutGap="1%" fxFlexOffset="5%" fxFlexOffset.lt-md="8%" class="w-100 title" fxLayoutAlign="center center">
     <mat-icon>loop</mat-icon>
     <span>Tarefas Recorrentes</span>
   </div>
 
 
-  <div *ngIf="!noRecurrentTasks" class="w-80" fxLayout fxLayoutGap="5%">
-    <table class="w-100" fxLayout="column" fxLayoutGap="5%">
+  <div *ngIf="!noRecurrentTasks" class="w-80" fxLayout="column" fxLayoutGap="5%">
+    <table class="w-100" fxLayout="column" fxLayoutGap="5%" fxFlexOffset.lt-md="8%">
       <tr *ngFor="let row of recurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="6%">
         <td class="column-width" *ngFor="let cell of row; trackBy: trackRecord">
           <app-task-recurrent [taskWeek]="cell" (refresh)="refresh($event)"></app-task-recurrent>
@@ -26,14 +26,14 @@
   </div>
 
 
-  <div fxLayout fxLayoutGap="1%" fxFlexOffset="2%" class="w-100 title" fxLayoutAlign="center center">
+  <div fxLayout fxLayoutGap="1%" fxFlexOffset="2%" fxFlexOffset.lt-md="8%" class="w-100 title" fxLayoutAlign="center center">
     <mat-icon>today</mat-icon>
     <span>Tarefas Pontuais</span>
   </div>
 
 
   <div *ngIf="!noNotRecurrentTasks" class="w-80" fxLayout fxLayoutGap="5%">
-    <table class="w-100" fxLayout="column" fxLayoutGap="5%">
+    <table class="w-100" fxLayout="column" fxLayoutGap="5%" fxFlexOffset.lt-md="8%">
       <tr *ngFor="let row of notRecurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="6%">
         <td  class="column-width" *ngFor="let cell of row; trackBy: trackRecord">
           <app-task-not-recurrent [task]="cell" (refresh)="refresh($event)"></app-task-not-recurrent>

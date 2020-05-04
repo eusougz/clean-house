@@ -7,7 +7,7 @@
     </div>
 
     <div class="w-100" fxLayout fxLayoutAlign="center center">
-      <mat-form-field appearance="outline" class="w-30">
+      <mat-form-field appearance="outline" [ngClass]="{'w-90': smallScreen, 'w-30': !smallScreen}">
         <mat-label>Nome</mat-label>
         <input matInput [formControl]="taskName" placeholder="Digite o nome da tarefa" class="text-center">
       </mat-form-field>
@@ -15,14 +15,14 @@
 
     <div fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="w-100 fs-20">
 
-      <div class="w-30" fxLayout fxLayoutAlign="space-between center">
+      <div fxLayout fxLayoutAlign="space-between center" [ngClass]="{'w-90': smallScreen, 'w-30': !smallScreen}">
         <mat-form-field fxFlex="40" appearance="outline" class="w-30 input-height">
           <mat-label>Duração</mat-label>
           <input matInput [formControl]="duration" placeholder="em minutos" class="text-center" type="number" min="1">
         </mat-form-field>
 
-        <div fxFlex="60" fxLayout="column" fxLayoutGap="3%" fxLayoutAlign="center center">
-          <label id="recorrente">É uma tarefa recorrente?</label>
+        <div fxFlex="60" fxLayout="column" fxLayoutGap="1%" fxLayoutAlign="center center">
+          <label id="recorrente" class="text-center">É uma tarefa recorrente?</label>
           <mat-radio-group aria-label="recorrente" fxLayoutAlign="center center" fxLayoutGap="15%"
             (change)="isRecurrent($event)">
             <mat-radio-button color="primary" value="1">Sim</mat-radio-button>
@@ -33,33 +33,33 @@
 
       <div *ngIf="recurrent != null">
         <div *ngIf="recurrent" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center" class="fs-20">
-          <label id="dias-semana">Selecione os dias da semana</label>
+          <label id="dias-semana" fxFlexOffset="5%">Selecione os dias da semana</label>
 
           <div fxLayout="column">
             <mat-button-toggle-group multiple="true" vertical="false" aria-label="dias-semana"
               (change)="weekDays($event)">
-              <!-- <div fxLayout="column"> -->
-                <!-- <div fxLayout class="border-bottom"> -->
+              <div fxLayout.lt-md="column" fxLayout.gt-sm>
+                <div fxLayout class="border-bottom">
                   <mat-button-toggle value="6">Sábado</mat-button-toggle>
                   <mat-button-toggle value="0">Domingo</mat-button-toggle>
                   <mat-button-toggle value="1">Segunda</mat-button-toggle>
-                <!-- </div> -->
-                <!-- <div fxLayout> -->
+                </div>
+                <div fxLayout>
                   <mat-button-toggle value="2">Terça</mat-button-toggle>
                   <mat-button-toggle value="3">Quarta</mat-button-toggle>
                   <mat-button-toggle value="4">Quinta</mat-button-toggle>
                   <mat-button-toggle value="5">Sexta</mat-button-toggle>
-                <!-- </div> -->
-              <!-- </div> -->
+                </div>
+              </div>
             </mat-button-toggle-group>
           </div>
 
 
         </div>
 
-        <div *ngIf="!recurrent" fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center" class="fs-20">
+        <div *ngIf="!recurrent" fxLayout fxLayoutGap="2%" fxLayoutAlign="center center" class="fs-20">
           <mat-form-field>
-            <mat-label>Selecione a data</mat-label>
+            <mat-label fxFlexOffset="5%">Selecione a data</mat-label>
             <input matInput [formControl]="taskDate" class="text-center"
               [matDatepicker]="picker" (dateChange)="onChangeDate($event)">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -71,8 +71,8 @@
 
 
 
-    <div class="w-60" fxLayoutAlign="center center">
-      <button fxFlex="20" mat-raised-button color="accent" class="register-btn" [disabled]="!canRegister"
+    <div fxFlexOffset.lt-md="5%" fxLayoutAlign="center center" [ngClass]="{'w-90': smallScreen, 'w-30': !smallScreen}">
+      <button fxFlex mat-raised-button color="accent" class="register-btn" [disabled]="!canRegister"
         (click)="register()">
         Cadastrar
       </button>

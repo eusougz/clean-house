@@ -65,6 +65,12 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 .second-color {color: mat-color($my-theme-primary, 700) !important;}
 .third-color {color: mat-color($my-theme-primary, 400) !important;}
 
+.primary-color {color: mat-color($my-theme-primary)}
+.secundary-color {color: mat-color($my-theme-accent)}
+.warn-color {color: mat-color($my-theme-warn)}
+.bg-primary {background-color: mat-color($my-theme-primary)}
+.bg-accent {background-color: mat-color($my-theme-accent)}
+
 
 .dark-theme {
   $my-dark-primary-color: (
@@ -109,7 +115,7 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 
   .text-color {color: white;}
 
-  .bg-color{background-color: #333333 !important;}
+  .bg-color {background-color: #333333 !important;}
 
   .data-row {
     color: white;
@@ -128,5 +134,11 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
   .first-color {color: mat-color($my-theme-accent, 600) !important;}
   .second-color {color: mat-color($my-theme-primary, 700) !important;}
   .third-color {color: mat-color($my-theme-primary, 400) !important;}
+
+  .primary-color {color: mat-color($my-theme-primary)}
+  .secundary-color {color: mat-color($my-theme-accent)}
+  .warn-color {color: mat-color($my-theme-warn)}
+  .bg-primary {background-color: mat-color($my-theme-primary)}
+  .bg-accent {background-color: mat-color($my-theme-accent)}
 }
 
