@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AppService } from 'src/app/services/app.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
+import { IgxNavDrawerItemDirective } from 'igniteui-angular';
 
 @Component({
   selector: 'app-menu-nav',

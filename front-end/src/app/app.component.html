@@ -1,6 +1,6 @@
 <div [ngClass]="{'dark-theme': isThemeDark | async}" class="h-inherit bg-color" >
   <app-menu-nav class="h-inherit">
-    <div class="bg-color">
+    <div class="bg-color" ngClass.gt-sm="desktop-height" ngClass.lt-md="mobile-height">
       <router-outlet></router-outlet>
     </div>
   </app-menu-nav>

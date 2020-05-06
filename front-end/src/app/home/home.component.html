@@ -1,13 +1,13 @@
 <div fxLayout="column" fxLayoutGap="3%" fxFlex fxLayoutAlign="start center">
 
-  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%" fxFlexOffset="3%" class="title"
+  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1%" fxFlexOffset.gt-sm="3%" fxFlexOffset.lt-md="8%" class="title"
     [ngClass]="{'w-50': !smallScreen, 'w-80': smallScreen}"
   >
     <mat-icon>house</mat-icon>
     <span>Tarefas do dia</span>
   </div>
 
-  <table [ngClass]="{'w-50': !smallScreen, 'w-80': smallScreen}" fxLayout="column" fxLayoutGap="5%">
+  <table fxFlexOffset.lt-md="8%" [ngClass]="{'w-50': !smallScreen, 'w-80': smallScreen}" fxLayout="column" fxLayoutGap="5%">
     <tr *ngFor="let row of table; trackBy: trackRow" fxLayout>
       <td *ngFor="let cell of row; trackBy: trackRecord"
         [ngClass]="{'columns-2': !smallScreen, 'column-1': smallScreen}">

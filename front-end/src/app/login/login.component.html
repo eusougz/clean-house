@@ -1,23 +1,26 @@
-<div id="login-page" fxLayoutAlign="center center">
+<div id="login-page" ngClass.gt-sm="bg-image" ngClass.lt-md="bg-image-mobile" fxLayoutAlign="center center">
 
-  <div id="balde" fxLayout fxLayoutAlign="end center">
+  <div ngClass.gt-sm="balde" fxLayout fxLayoutAlign="end center">
 
-    <div *ngIf="login" fxLayout="column" fxLayoutGap="2%">
-      <mat-card fxLayout="column">
-        <mat-form-field>
-          <input matInput [formControl]="userName" placeholder="Quem é você?">
-          <mat-error *ngIf="userName.hasError('required')">
-            Você precisa colocar o nome
-          </mat-error>
-        </mat-form-field>
-        <button mat-raised-button color="accent" class="white"
-          (click)="auth()" [routerLink]="goToHome()">
-          Entrar
-        </button>
-      </mat-card>
-      <mat-card fxLayout>
-        <label>Não tem uma conta? <strong class="primary-color" (click)="goToRegisterForm()">Cadastre-se</strong></label>
-      </mat-card>
+    <div *ngIf="login" fxLayout="column" fxLayoutGap="10%">
+      <div fxHide.gt-sm class="logo"></div>
+      <div fxLayout="column" fxLayoutGap="2%">
+        <mat-card fxLayout="column">
+          <mat-form-field>
+            <input matInput [formControl]="userName" placeholder="Quem é você?">
+            <mat-error *ngIf="userName.hasError('required')">
+              Você precisa colocar o nome
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="accent" class="white"
+            (click)="auth()" [routerLink]="goToHome()">
+            Entrar
+          </button>
+        </mat-card>
+        <mat-card fxLayout>
+          <label>Não tem uma conta? <strong class="primary-color" (click)="goToRegisterForm()">Cadastre-se</strong></label>
+        </mat-card>
+      </div>
     </div>
 
     <div *ngIf="!login">

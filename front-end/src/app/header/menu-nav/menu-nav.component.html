@@ -79,7 +79,7 @@
             </mat-slide-toggle>
           </div>
 
-          <button mat-button fxLayoutAlign="center center" (click)="logout()" routerLink="/login">
+          <button mat-button fxLayoutAlign="center center" (click)="logout()" (click)="drawer.close()" routerLink="/login">
             <mat-icon>exit_to_app</mat-icon>
             <span class="text-color fw-300 fs-17">Sair</span>
           </button>

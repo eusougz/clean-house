@@ -22,7 +22,7 @@
   </div>
 
   <div *ngIf="noRecurrentTasks" fxLayoutAlign="center center">
-    <span class="fs-20 text-color">Nenhuma Tarefa</span>
+    <span class="fs-20 text-color mb-5">Nenhuma Tarefa</span>
   </div>
 
 
@@ -32,7 +32,7 @@
   </div>
 
 
-  <div *ngIf="!noNotRecurrentTasks" class="w-80" fxLayout fxLayoutGap="5%">
+  <div *ngIf="!noNotRecurrentTasks" class="w-80" fxLayout="column" fxLayoutGap="5%">
     <table class="w-100" fxLayout="column" fxLayoutGap="5%" fxFlexOffset.lt-md="8%">
       <tr *ngFor="let row of notRecurrentTable; trackBy: trackRow" fxLayout fxLayoutGap="6%">
         <td  class="column-width" *ngFor="let cell of row; trackBy: trackRecord">
@@ -43,7 +43,7 @@
   </div>
 
   <div *ngIf="noNotRecurrentTasks" fxLayoutAlign="center center">
-    <span class="fs-20 text-color">Nenhuma Tarefa</span>
+    <span class="fs-20 text-color mb-5">Nenhuma Tarefa</span>
   </div>
 
 </div>
