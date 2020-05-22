@@ -11,6 +11,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif !important; 
   font-size: 28px;
   font-weight: 200;
   color: mat-color($my-theme-primary);
+  margin-top: 8%;
 }
 
 .mat-button-toggle-checked,
@@ -18,6 +19,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif !important; 
   background-color: mat-color($my-theme-primary);
   color: white;
   font-weight: 400;
+}
+
+.mat-raised-button.mat-accent {
+  color: white;
 }
 
 .image-div-size {

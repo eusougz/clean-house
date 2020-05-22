@@ -22,15 +22,19 @@
     </div>
   </div> -->
 
-  <div fxLayout="column" fxLayoutGap="2%" fxFlexOffset="3%" ngClass.lt-md="w-90" ngClass.gt-sm="w-60">
-    <div fxLayout fxLayoutAlign="space-between center" class="table-header">
-      <div ngClass.lt-md="w-20" ngClass.gt-sm="w-10"></div>
-      <div class="w-90 title" fxLayout fxLayoutAlign="start center" fxLayoutGap="1%">
+  <div fxLayout="column" fxLayoutGap.gt-sm="2%" fxLayoutGap.lt-md="4%" fxFlexOffset.gt-sm="3%" ngClass.lt-md="w-90" ngClass.gt-sm="w-60">
+    <!-- <div fxLayout fxLayoutAlign="space-between center" class="table-header" >
+      <div fxHide.lt-md ngClass.lt-md="w-20" ngClass.gt-sm="w-10"></div>
+      <div class="w-90 title" fxLayout fxLayoutAlign.gt-sm="start center" fxLayoutGap="1%" fxLayoutAlign.lt-md="center center">
         <mat-icon>star</mat-icon>
         <span>Heróis da casa</span>
       </div>
+    </div> -->
+    <div class="w-90 title" fxLayout fxLayoutAlign.gt-sm="start center" fxLayoutGap="1%" fxLayoutAlign.lt-md="center center">
+      <mat-icon>star</mat-icon>
+      <span>Heróis da casa</span>
     </div>
-    <div *ngFor="let userPoint of userPoints; last as isLast; index as i" fxLayout fxLayoutAlign="start center" class="data-row">
+    <div *ngFor="let userPoint of userPoints; last as isLast; index as i" fxLayout fxLayoutAlign="start center" class="data-row" >
       <div class="w-10 height-100 position-div" fxLayoutAlign="start center"
         [ngClass]="{
           'first': i == 0,
